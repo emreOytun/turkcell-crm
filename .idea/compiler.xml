@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="invoiceservice" />
+        <module name="discoveryserver" />
         <module name="orderservice" />
         <module name="productservice" />
       </profile>
@@ -24,16 +25,11 @@
         <module name="customerservice" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="customerservice" target="17" />
-      <module name="invoiceservice" target="17" />
-      <module name="orderservice" target="17" />
-      <module name="productservice" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="customerservice" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="discoveryserver" options="-parameters" />
       <module name="invoiceservice" options="-parameters" />
       <module name="orderservice" options="-parameters" />
       <module name="productservice" options="-parameters" />

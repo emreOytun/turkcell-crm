@@ -64,5 +64,7 @@ public class Customer {
     @Column(name = "fax")
     private String fax;
 
-
+    @Column(name = "address")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer")
+    private List<Address> address;
 }

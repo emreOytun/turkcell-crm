@@ -5,7 +5,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(value = "order")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Document(value="orders")
 public class Order {
     @Id
     private String id;
