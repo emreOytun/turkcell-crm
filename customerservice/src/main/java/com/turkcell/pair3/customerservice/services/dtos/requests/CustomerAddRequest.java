@@ -1,6 +1,5 @@
-package com.turkcell.pair3.customerservice.service.dtos.requests;
+package com.turkcell.pair3.customerservice.services.dtos.requests;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

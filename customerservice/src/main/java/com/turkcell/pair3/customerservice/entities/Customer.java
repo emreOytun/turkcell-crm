@@ -1,4 +1,4 @@
-package com.turkcell.pair3.customerservice.entity;
+package com.turkcell.pair3.customerservice.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

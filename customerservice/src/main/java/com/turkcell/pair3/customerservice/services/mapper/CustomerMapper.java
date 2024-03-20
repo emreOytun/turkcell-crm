@@ -1,7 +1,7 @@
-package com.turkcell.pair3.customerservice.service.mapper;
+package com.turkcell.pair3.customerservice.services.mapper;
 
-import com.turkcell.pair3.customerservice.entity.Customer;
-import com.turkcell.pair3.customerservice.service.dtos.requests.CustomerAddRequest;
+import com.turkcell.pair3.customerservice.entities.Customer;
+import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

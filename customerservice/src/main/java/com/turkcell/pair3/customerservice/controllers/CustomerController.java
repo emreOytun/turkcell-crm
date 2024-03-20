@@ -1,8 +1,8 @@
-package com.turkcell.pair3.customerservice.controller;
+package com.turkcell.pair3.customerservice.controllers;
 
-import com.turkcell.pair3.customerservice.entity.Customer;
-import com.turkcell.pair3.customerservice.service.abstracts.CustomerService;
-import com.turkcell.pair3.customerservice.service.dtos.requests.CustomerAddRequest;
+import com.turkcell.pair3.customerservice.entities.Customer;
+import com.turkcell.pair3.customerservice.services.abstracts.CustomerService;
+import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
