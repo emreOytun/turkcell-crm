@@ -3,20 +3,34 @@ package com.turkcell.pair3.customerservice.controllers;
 import com.turkcell.pair3.customerservice.entities.Customer;
 import com.turkcell.pair3.customerservice.services.abstracts.CustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequest;
+import com.turkcell.pair3.customerservice.services.dtos.requests.SearchCustomerRequest;
+import com.turkcell.pair3.customerservice.services.dtos.responses.CustomerInfoResponse;
+import com.turkcell.pair3.customerservice.services.dtos.responses.SearchCustomerResponse;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping("/api/customers")
 @AllArgsConstructor
 public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    public Customer add(@RequestBody CustomerAddRequest customerAddRequest) {
+    public Integer add(@RequestBody CustomerAddRequest customerAddRequest) {
         return customerService.add(customerAddRequest);
+    }
+
+    @PostMapping("search")
+    public List<SearchCustomerResponse> search(@RequestBody SearchCustomerRequest request)
+    {
+        return customerService.search(request);
+    }
+
+    @GetMapping("getInfo/{customerId}")
+    public CustomerInfoResponse getInfo(@PathVariable String customerId)
+    {
+        return customerService.getCustomerInfo(customerId);
     }
 }

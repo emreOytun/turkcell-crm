@@ -1,12 +1,14 @@
 package com.turkcell.pair3.customerservice.entities;
 
+import com.turkcell.pair3.customerservice.enums.EnumGender;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -19,14 +21,17 @@ public class Customer {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name="customer_id")
+    private String customerId; // ABC014
+
     @Column(name = "account_number", nullable = false)
     private String accountNumber;
 
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "national_id", nullable = false)
-    private String nationalId;
+    @Column(name = "nationality_id", nullable = false)
+    private int nationalityId;
 
     @Column(name = "gsm_number", nullable = false)
     private String gsmNumber;
@@ -37,17 +42,18 @@ public class Customer {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "mid_name")
-    private String midName;
+    @Column(name="second_name")
+    private String secondName;
 
     @Column(name = "role", nullable = false)
     private String role;
 
     @Column(name = "birth_date", nullable = false)
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "gender", nullable = false)
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private EnumGender gender;
 
     @Column(name = "father_name")
     private String fatherName;
