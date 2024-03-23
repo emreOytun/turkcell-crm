@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/addresses")
-@AllArgsConstructor
+
 public class AddressController {
     private final AddressService addressService;
+
+    public AddressController(AddressService addressService) {
+        this.addressService = addressService;
+    }
 
     @PostMapping
     public Integer add(AddressAddRequest request) {

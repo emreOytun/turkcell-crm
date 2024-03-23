@@ -9,10 +9,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class AddressServiceImpl implements AddressService {
 
     private AddressRepository addressRepository;
+
+    public AddressServiceImpl(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
+
     public Integer add(AddressAddRequest request) {
         Address address = AddressMapper.INSTANCE.addressFromAddRequest(request);
 

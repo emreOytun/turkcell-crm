@@ -13,10 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/customers")
-@AllArgsConstructor
 public class CustomerController {
     private final CustomerService customerService;
 
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
     @PostMapping
     public Integer add(@RequestBody CustomerAddRequest customerAddRequest) {
         return customerService.add(customerAddRequest);

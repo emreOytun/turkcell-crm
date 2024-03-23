@@ -15,9 +15,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
+
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     public Integer add(CustomerAddRequest customerAddRequest) {
         Customer customer = CustomerMapper.INSTANCE.customerFromAddRequest(customerAddRequest);

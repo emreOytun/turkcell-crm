@@ -7,10 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class AddressAddRequest {
     
     @NotNull
@@ -21,4 +18,37 @@ public class AddressAddRequest {
 
     @NotBlank(message = "House/Flat number is mandatory.")
     private String flatNumber;
+
+    public AddressAddRequest() {
+    }
+
+    public AddressAddRequest(int cityId, String street, String flatNumber) {
+        this.cityId = cityId;
+        this.street = street;
+        this.flatNumber = flatNumber;
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getFlatNumber() {
+        return flatNumber;
+    }
+
+    public void setFlatNumber(String flatNumber) {
+        this.flatNumber = flatNumber;
+    }
 }

@@ -8,10 +8,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "cities")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 public class City {
 
     @Id
@@ -21,4 +17,27 @@ public class City {
 
     @Column(name = "city_name", nullable = false)
     private String cityName;
+
+    public City() {
+    }
+
+    public City(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 }
