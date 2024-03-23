@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/orders")
-public class OrderRepository {
+public class OrderController {
     @GetMapping
     public int getId() { return 10; }
 }
