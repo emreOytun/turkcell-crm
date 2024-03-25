@@ -1,5 +1,6 @@
 package com.turkcell.pair3.customerservice.services.dtos.requests;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +13,7 @@ public class CustomerAddRequest {
     @NotBlank
     private String accountNumber;
 
+    //@Email
     @NotBlank
     private String email;
 

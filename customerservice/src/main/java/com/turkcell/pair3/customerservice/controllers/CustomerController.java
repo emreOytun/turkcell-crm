@@ -6,7 +6,6 @@ import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequ
 import com.turkcell.pair3.customerservice.services.dtos.requests.SearchCustomerRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.CustomerInfoResponse;
 import com.turkcell.pair3.customerservice.services.dtos.responses.SearchCustomerResponse;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,4 +34,14 @@ public class CustomerController {
     {
         return customerService.getCustomerInfo(customerId);
     }
+
+
+
+
+    @GetMapping("getInfo/all")
+    public List<Customer> getAll()
+    {
+        return customerService.getAll();
+    }
+
 }

@@ -20,6 +20,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     Customer findByNationalityId(int nationalityId);
 
+    List<Customer> findAll();
+
     Customer findByCustomerId(String customerId);
     @Query("Select new com.turkcell.pair3.customerservice.services.dtos.responses." +
             "SearchCustomerResponse(c.customerId, c.firstName, c.lastName, c.secondName, c.nationalityId)" +

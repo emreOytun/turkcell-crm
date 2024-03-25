@@ -2,6 +2,7 @@ package com.turkcell.pair3.customerservice.entities;
 
 import com.turkcell.pair3.customerservice.enums.EnumGender;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Customer {
     @Column(name = "account_number", nullable = false)
     private String accountNumber;
 
+    //@Email
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -44,6 +46,7 @@ public class Customer {
     @Column(name = "role", nullable = false)
     private String role;
 
+    //TODO: birthdate should be in the past localdate is not a good choice
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 

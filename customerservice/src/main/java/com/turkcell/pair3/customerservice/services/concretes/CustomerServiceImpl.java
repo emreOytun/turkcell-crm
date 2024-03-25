@@ -5,6 +5,7 @@ import com.turkcell.pair3.customerservice.entities.Customer;
 import com.turkcell.pair3.customerservice.repositories.CustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.CustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequest;
+import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.SearchCustomerRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.CustomerInfoResponse;
 import com.turkcell.pair3.customerservice.services.dtos.responses.SearchCustomerResponse;
@@ -13,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -45,5 +47,24 @@ public class CustomerServiceImpl implements CustomerService {
         return CustomerMapper.INSTANCE.customerInfoResponseFromCustomer(customerRepository.findByCustomerId(customerId));
     }
 
+    @Override
+    public List<Customer> getAll() {
+        return customerRepository.findAll();
+    }
+
+    @Override
+    public CustomerInfoResponse update(Integer id, CustomerUpdateRequest request){
+        Optional<Customer> customer = customerRepository.findById(id);
+
+        if(customer.isEmpty()){
+            throw new BusinessException("Given id not found!");
+        }
+
+        Customer updatedCustomer = customer.get();
+        CustomerMapper.INSTANCE.updateCustomerField(updatedCustomer, request);
+        updatedCustomer = customerRepository.save(updatedCustomer);
+
+        return CustomerMapper.INSTANCE.customerInfoResponseFromCustomer(updatedCustomer);
+    }
 
 }
