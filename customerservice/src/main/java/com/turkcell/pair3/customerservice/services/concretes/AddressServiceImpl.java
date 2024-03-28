@@ -1,6 +1,6 @@
 package com.turkcell.pair3.customerservice.services.concretes;
 
-import com.turkcell.pair3.customerservice.core.types.BusinessException;
+import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.entities.Address;
 import com.turkcell.pair3.customerservice.repositories.AddressRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.AddressService;
@@ -8,20 +8,17 @@ import com.turkcell.pair3.customerservice.services.dtos.requests.AddressAddReque
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.AddressUpdateResponse;
 import com.turkcell.pair3.customerservice.services.mapper.AddressMapper;
-import com.turkcell.pair3.customerservice.services.mapper.CustomerMapper;
-import lombok.RequiredArgsConstructor;
+import com.turkcell.pair3.customerservice.services.messages.AddressMessages;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class AddressServiceImpl implements AddressService {
 
-    private AddressRepository addressRepository;
-
-    public AddressServiceImpl(AddressRepository addressRepository) {
-        this.addressRepository = addressRepository;
-    }
+    private final AddressRepository addressRepository;
 
     public Integer add(AddressAddRequest request) {
         Address address = AddressMapper.INSTANCE.addressFromAddRequest(request);
@@ -37,7 +34,7 @@ public class AddressServiceImpl implements AddressService {
         Optional<Address> address = addressRepository.findById(id);
 
         if(address.isEmpty()){
-            throw new BusinessException("Not find id!");
+            throw new BusinessException(AddressMessages.NO_ADDRESS_FOUND);
         }
 
         addressRepository.delete(address.get());
@@ -49,11 +46,13 @@ public class AddressServiceImpl implements AddressService {
         Optional<Address> address = addressRepository.findById(id);
 
         if(address.isEmpty()){
-            throw new BusinessException("Not find id");
+            throw new BusinessException(AddressMessages.NO_ADDRESS_FOUND);
         }
 
         Address addressUpdated = address.get();
+
         AddressMapper.INSTANCE.updateAddressField(addressUpdated, request);
+
         addressUpdated = addressRepository.save(addressUpdated);
 
         return AddressMapper.INSTANCE.addressUpdateResponseFromAddress(addressUpdated);

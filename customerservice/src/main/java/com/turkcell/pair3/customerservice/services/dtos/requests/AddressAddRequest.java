@@ -1,5 +1,7 @@
 package com.turkcell.pair3.customerservice.services.dtos.requests;
 
+import com.turkcell.pair3.customerservice.services.constants.Messages;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -7,48 +9,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddressAddRequest {
     
-    @NotNull
+    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private int cityId;
 
-    @NotBlank(message = "Street is mandatory.")
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String street;
 
-    @NotBlank(message = "House/Flat number is mandatory.")
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String flatNumber;
-
-    public AddressAddRequest() {
-    }
-
-    public AddressAddRequest(int cityId, String street, String flatNumber) {
-        this.cityId = cityId;
-        this.street = street;
-        this.flatNumber = flatNumber;
-    }
-
-    public int getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(int cityId) {
-        this.cityId = cityId;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getFlatNumber() {
-        return flatNumber;
-    }
-
-    public void setFlatNumber(String flatNumber) {
-        this.flatNumber = flatNumber;
-    }
 }

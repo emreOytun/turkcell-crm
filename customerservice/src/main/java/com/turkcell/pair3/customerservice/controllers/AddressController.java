@@ -4,21 +4,18 @@ import com.turkcell.pair3.customerservice.services.abstracts.AddressService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.AddressUpdateResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/addresses")
-
+@AllArgsConstructor
 public class AddressController {
     private final AddressService addressService;
 
-    public AddressController(AddressService addressService) {
-        this.addressService = addressService;
-    }
-
     @PostMapping
-    public Integer add(AddressAddRequest request) {
+    public Integer add(@RequestBody @Valid AddressAddRequest request) {
         return addressService.add(request);
     }
 

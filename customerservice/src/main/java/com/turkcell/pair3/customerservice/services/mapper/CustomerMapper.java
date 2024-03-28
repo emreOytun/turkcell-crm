@@ -6,6 +6,7 @@ import com.turkcell.pair3.customerservice.services.dtos.requests.AddressUpdateRe
 import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.AddressUpdateResponse;
+import com.turkcell.pair3.customerservice.services.dtos.responses.CustomerAddResponse;
 import com.turkcell.pair3.customerservice.services.dtos.responses.CustomerInfoResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -23,4 +24,6 @@ public interface CustomerMapper {
 
 
     CustomerInfoResponse customerInfoResponseFromCustomer(Customer customer);
+
+    CustomerAddResponse customerAddResponseFromCustomer(Customer customer);
 }

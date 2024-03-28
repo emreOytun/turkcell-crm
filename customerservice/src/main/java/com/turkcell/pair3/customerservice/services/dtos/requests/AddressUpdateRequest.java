@@ -1,5 +1,6 @@
 package com.turkcell.pair3.customerservice.services.dtos.requests;
 
+import com.turkcell.pair3.customerservice.services.constants.Messages;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -12,16 +13,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddressUpdateRequest {
-    @NotNull
+    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private int id;
 
-    @NotNull
+    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private int cityId;
 
-    @NotBlank(message = "Street is mandatory.")
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String street;
 
-    @NotBlank(message = "House/Flat number is mandatory.")
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String flatNumber;
 
 }

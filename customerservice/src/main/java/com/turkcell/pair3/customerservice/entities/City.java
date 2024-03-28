@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "cities")
 public class City {
 
@@ -17,27 +21,4 @@ public class City {
 
     @Column(name = "city_name", nullable = false)
     private String cityName;
-
-    public City() {
-    }
-
-    public City(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
 }
