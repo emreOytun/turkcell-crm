@@ -1,10 +1,8 @@
 package com.turkcell.pair3.customerservice.services.mapper;
 
 import com.turkcell.pair3.customerservice.entities.Address;
-import com.turkcell.pair3.customerservice.entities.Customer;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressUpdateRequest;
-import com.turkcell.pair3.customerservice.services.dtos.requests.CustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.AddressUpdateResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -13,7 +13,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerAddRequest {
+public class IndividualCustomerAddRequest {
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String accountNumber;
 

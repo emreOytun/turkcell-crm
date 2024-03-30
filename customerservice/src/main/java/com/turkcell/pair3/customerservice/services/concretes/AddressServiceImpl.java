@@ -2,6 +2,8 @@ package com.turkcell.pair3.customerservice.services.concretes;
 
 import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.entities.Address;
+import com.turkcell.pair3.customerservice.entities.Customer;
+import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.AddressRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.AddressService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressAddRequest;
@@ -20,6 +22,7 @@ public class AddressServiceImpl implements AddressService {
 
     private final AddressRepository addressRepository;
 
+    @Override
     public Integer add(AddressAddRequest request) {
         Address address = AddressMapper.INSTANCE.addressFromAddRequest(request);
 

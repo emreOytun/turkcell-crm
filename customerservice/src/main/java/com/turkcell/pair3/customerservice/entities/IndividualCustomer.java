@@ -1,43 +1,25 @@
 package com.turkcell.pair3.customerservice.entities;
 
-import com.turkcell.pair3.customerservice.core.entities.BaseEntity;
+
 import com.turkcell.pair3.customerservice.enums.EnumGender;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
-@Table(name = "Customers")
+@Table(name = "individual_customer")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Customer extends BaseEntity<Integer> {
+public class IndividualCustomer extends Customer{
 
-
-    @Column(name="customer_id")
-    private String customerId;
-
-    @Column(name = "account_number", nullable = false)
-    private String accountNumber;
-
-    @Column(name = "email", nullable = false)
-    private String email;
-
-
-    @Column(name = "gsm_number", nullable = false)
-    private String gsmNumber;
-
-    /* Individual - Customer
     @Column(name = "nationality_id", nullable = false)
-    private int nationalityId;
+    private String nationalityId;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -63,15 +45,5 @@ public class Customer extends BaseEntity<Integer> {
 
     @Column(name = "home_phone")
     private String homePhone;
-    */
 
-    @Column(name = "role", nullable = false)
-    private String role;
-
-    @Column(name = "fax")
-    private String fax;
-
-    @Column(name = "address")
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer")
-    private List<Address> address;
 }

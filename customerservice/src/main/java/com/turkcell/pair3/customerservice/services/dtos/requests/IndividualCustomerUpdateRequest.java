@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerUpdateRequest {
+public class IndividualCustomerUpdateRequest {
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String firstName;
 
@@ -38,5 +38,5 @@ public class CustomerUpdateRequest {
     private LocalDate birthDate;
 
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
-    private int nationalityId;
+    private String nationalityId;
 }

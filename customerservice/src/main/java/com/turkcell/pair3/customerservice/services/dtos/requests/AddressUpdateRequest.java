@@ -14,10 +14,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AddressUpdateRequest {
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
-    private int id;
+    private Integer id;
 
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
-    private int cityId;
+    private Integer cityId;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String street;

@@ -16,11 +16,14 @@ import lombok.Setter;
 public class AddressAddRequest {
     
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
-    private int cityId;
+    private Integer cityId;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String street;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String flatNumber;
+
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    private String description;
 }

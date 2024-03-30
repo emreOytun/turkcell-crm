@@ -1,5 +1,6 @@
 package com.turkcell.pair3.customerservice.entities;
 
+import com.turkcell.pair3.customerservice.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,12 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "cities")
-public class City {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+public class City extends BaseEntity<Integer> {
 
     @Column(name = "city_name", nullable = false)
     private String cityName;

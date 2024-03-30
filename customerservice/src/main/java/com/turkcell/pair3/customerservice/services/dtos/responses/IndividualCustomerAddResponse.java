@@ -1,9 +1,6 @@
 package com.turkcell.pair3.customerservice.services.dtos.responses;
 
 import com.turkcell.pair3.customerservice.enums.EnumGender;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,12 +12,12 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerAddResponse {
+public class IndividualCustomerAddResponse {
     private Integer id;
     private String customerId;
     private String accountNumber;
     private String email;
-    private int nationalityId;
+    private String nationalityId;
     private String gsmNumber;
     private String firstName;
     private String lastName;
