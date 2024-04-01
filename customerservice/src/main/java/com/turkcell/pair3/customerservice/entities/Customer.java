@@ -13,14 +13,18 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "Customers")
+@Table(name = "customers")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Customer extends BaseEntity<Integer> {
+public class Customer extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name="customer_id")
     private String customerId;

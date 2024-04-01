@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
@@ -12,10 +13,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public class BaseEntity<T> {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private T id;
+public class BaseEntity implements Serializable {
+
     @Column(name="created_date")
     private LocalDateTime createdDate;
     @Column(name="updated_date")

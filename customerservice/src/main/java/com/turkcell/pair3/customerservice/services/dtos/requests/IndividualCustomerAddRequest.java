@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -39,7 +40,7 @@ public class IndividualCustomerAddRequest {
     private String role;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String gender;

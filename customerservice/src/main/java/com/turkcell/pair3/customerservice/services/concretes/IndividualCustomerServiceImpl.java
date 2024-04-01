@@ -13,7 +13,7 @@ import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCust
 import com.turkcell.pair3.customerservice.services.dtos.responses.SearchIndividualCustomerResponse;
 import com.turkcell.pair3.customerservice.services.mapper.IndividualCustomerMapper;
 import com.turkcell.pair3.customerservice.services.messages.CustomerMessages;
-import com.turkcell.pair3.customerservice.services.rules.CustomerBusinessRules;
+import com.turkcell.pair3.customerservice.services.rules.IndividualCustomerBusinessRules;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,18 +25,18 @@ import java.util.Optional;
 
 public class IndividualCustomerServiceImpl implements IndividualCustomerService {
     private final IndividualCustomerRepository individualCustomerRepository;
-    private final CustomerBusinessRules customerBusinessRules;
+    private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
 
-    public IndividualCustomerServiceImpl(IndividualCustomerRepository customerRepository, CustomerBusinessRules customerBusinessRules) {
+    public IndividualCustomerServiceImpl(IndividualCustomerRepository customerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules) {
         this.individualCustomerRepository = customerRepository;
-        this.customerBusinessRules = customerBusinessRules;
+        this.individualCustomerBusinessRules = individualCustomerBusinessRules;
     }
 
     @Override
     public IndividualCustomerAddResponse add(IndividualCustomerAddRequest individualCustomerAddRequest) {
         IndividualCustomer customer = IndividualCustomerMapper.INSTANCE.individualCustomerFromAddRequest(individualCustomerAddRequest);
 
-        customerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
+        individualCustomerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
 
         individualCustomerRepository.save(customer);
 

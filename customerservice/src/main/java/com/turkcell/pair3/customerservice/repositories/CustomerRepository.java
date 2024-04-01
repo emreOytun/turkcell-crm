@@ -11,7 +11,7 @@ import java.util.Optional;
 
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-    Optional<Customer> findByNationalityId(String nationalityId);
+    //Optional<Customer> findByNationalityId(String nationalityId);
 
 
     //TODO: Implement the paging for the findAll method

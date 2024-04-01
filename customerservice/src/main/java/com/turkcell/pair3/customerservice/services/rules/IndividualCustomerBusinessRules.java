@@ -2,7 +2,9 @@ package com.turkcell.pair3.customerservice.services.rules;
 
 import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.entities.Customer;
+import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.CustomerRepository;
+import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
 import com.turkcell.pair3.customerservice.services.messages.CustomerMessages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -11,14 +13,15 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class CustomerBusinessRules
+public class IndividualCustomerBusinessRules
 {
-    private final CustomerRepository customerRepository;
+    private final IndividualCustomerRepository individualCustomerRepository;
+
 
 
     public void customerWithSameNationalityIdCanNotExist(String nationalityId)
     {
-        Optional<Customer> customer = customerRepository.findByNationalityId(nationalityId);
+        Optional<IndividualCustomer> customer = individualCustomerRepository.findByNationalityId(nationalityId);
 
         if(customer.isPresent())
             throw new BusinessException(CustomerMessages.CUSTOMER_WITH_SAME_IDENTITY_EXISTS);
