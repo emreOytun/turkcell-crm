@@ -1,12 +1,12 @@
 package com.turkcell.pair3.customerservice.services.concretes;
 
+import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
-import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.SearchIndividualCustomerRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerAddResponse;
 import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerInfoResponse;

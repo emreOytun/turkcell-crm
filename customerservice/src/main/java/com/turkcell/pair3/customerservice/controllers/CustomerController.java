@@ -1,8 +1,5 @@
 package com.turkcell.pair3.customerservice.controllers;
 
-import com.turkcell.pair3.customerservice.entities.Customer;
-import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
-import com.turkcell.pair3.customerservice.repositories.CustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
@@ -18,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @Validated

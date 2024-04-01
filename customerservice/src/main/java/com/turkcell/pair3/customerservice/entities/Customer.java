@@ -1,15 +1,12 @@
 package com.turkcell.pair3.customerservice.entities;
 
 import com.turkcell.pair3.customerservice.core.entities.BaseEntity;
-import com.turkcell.pair3.customerservice.enums.EnumGender;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity

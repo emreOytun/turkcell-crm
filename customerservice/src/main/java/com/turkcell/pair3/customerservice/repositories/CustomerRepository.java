@@ -1,12 +1,8 @@
 package com.turkcell.pair3.customerservice.repositories;
 
 import com.turkcell.pair3.customerservice.entities.Customer;
-import com.turkcell.pair3.customerservice.services.dtos.requests.SearchIndividualCustomerRequest;
-import com.turkcell.pair3.customerservice.services.dtos.responses.SearchIndividualCustomerResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
 import java.util.Optional;
 
 

@@ -1,6 +1,5 @@
 package com.turkcell.pair3.customerservice.controllers;
 
-import com.turkcell.pair3.customerservice.repositories.CustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.AddressService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.AddressUpdateRequest;
