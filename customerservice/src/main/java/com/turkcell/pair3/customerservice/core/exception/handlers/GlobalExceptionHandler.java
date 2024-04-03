@@ -23,11 +23,12 @@ public class GlobalExceptionHandler
         return problemDetails;
     }
 
+    /*
     @ExceptionHandler({Exception.class})    //catch
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ProblemDetails handleOtherExceptions(){
         return new InternalProblemDetails();
-    }
+    }*/
 
     @ExceptionHandler({MethodArgumentNotValidException.class})  //catch
     @ResponseStatus(HttpStatus.BAD_REQUEST)

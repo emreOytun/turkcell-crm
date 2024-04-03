@@ -11,6 +11,7 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mapper(componentModel = "spring")
 public interface IndividualCustomerMapper {
@@ -26,4 +27,8 @@ public interface IndividualCustomerMapper {
     IndividualCustomerInfoResponse individualCustomerInfoResponseFromCustomer(IndividualCustomer customer);
 
     IndividualCustomerAddResponse individualCustomerAddResponseFromCustomer(IndividualCustomer customer);
+
+    /*default UUID mapToInfo(String info){
+        return UUID.fromString(info);
+    }*/
 }

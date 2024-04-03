@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 
@@ -37,7 +38,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         IndividualCustomer customer = IndividualCustomerMapper.INSTANCE.individualCustomerFromAddRequest(individualCustomerAddRequest);
 
         individualCustomerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
-
+        customer.setCustomerId(UUID.randomUUID().toString());
         individualCustomerRepository.save(customer);
 
         IndividualCustomerAddResponse response = IndividualCustomerMapper.INSTANCE.individualCustomerAddResponseFromCustomer(customer);
