@@ -20,9 +20,12 @@ public class AddressUpdateRequest {
     private Integer cityId;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
-    private String street;
+    private Integer houseNumber;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
-    private String flatNumber;
+    private String description;
+
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    private Integer customerId;
 
 }

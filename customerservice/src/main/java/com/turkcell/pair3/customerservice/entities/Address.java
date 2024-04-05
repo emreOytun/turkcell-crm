@@ -20,7 +20,7 @@ public class Address extends BaseEntity {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "city_id")
     private City city;
 
@@ -31,6 +31,6 @@ public class Address extends BaseEntity {
     private String description;
 
     @JoinColumn(name = "customer_id")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Customer customer;
 }

@@ -32,7 +32,6 @@ public class IndividualCustomerAddRequest {
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String lastName;
 
-
     private String secondName;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)

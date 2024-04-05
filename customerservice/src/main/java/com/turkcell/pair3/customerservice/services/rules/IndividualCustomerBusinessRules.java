@@ -24,4 +24,5 @@ public class IndividualCustomerBusinessRules
         if(customer.isPresent())
             throw new BusinessException(CustomerMessages.CUSTOMER_WITH_SAME_IDENTITY_EXISTS);
     }
+
 }
