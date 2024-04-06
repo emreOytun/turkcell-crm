@@ -37,7 +37,4 @@ public class GlobalExceptionHandler
         validationError.setDetail(methodArgumentNotValidException.getMessage());
         return validationError;
     }
-
-
-
 }
