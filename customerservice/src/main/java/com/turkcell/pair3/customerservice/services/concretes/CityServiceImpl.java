@@ -1,6 +1,6 @@
 package com.turkcell.pair3.customerservice.services.concretes;
 
-import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
+import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.entities.City;
 import com.turkcell.pair3.customerservice.repositories.CityRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.CityService;
