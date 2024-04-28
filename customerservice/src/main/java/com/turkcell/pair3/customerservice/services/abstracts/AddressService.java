@@ -5,7 +5,7 @@ import com.turkcell.pair3.customerservice.services.dtos.requests.AddressUpdateRe
 import com.turkcell.pair3.customerservice.services.dtos.responses.AddressUpdateResponse;
 
 public interface AddressService {
-    Integer add(AddressAddRequest request);
+    Integer save(AddressAddRequest request);
     void delete(Integer id);
 
     AddressUpdateResponse update(int id, AddressUpdateRequest request);

@@ -30,7 +30,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
 
     @Override
-    public IndividualCustomerAddResponse add(IndividualCustomerAddRequest individualCustomerAddRequest) {
+    public IndividualCustomerAddResponse saveCustomer(IndividualCustomerAddRequest individualCustomerAddRequest) {
         IndividualCustomer customer = IndividualCustomerMapper.INSTANCE.individualCustomerFromAddRequest(individualCustomerAddRequest);
 
         individualCustomerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
@@ -43,7 +43,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     }
 
     @Override
-    public List<IndividualCustomerSearchResponse> search(IndividualCustomerSearchRequest request) {
+    public List<IndividualCustomerSearchResponse> searchCustomer(IndividualCustomerSearchRequest request) {
             List<IndividualCustomerSearchResponse> response = individualCustomerRepository.search(request);
 
             if(response.isEmpty()) {
@@ -72,7 +72,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     }
 
     @Override
-    public IndividualCustomerInfoResponse update(Integer id, IndividualCustomerUpdateRequest request){
+    public IndividualCustomerInfoResponse updateCustomer(Integer id, IndividualCustomerUpdateRequest request){
         Optional<IndividualCustomer> customer = individualCustomerRepository.findById(id);
 
         if(customer.isEmpty()){

@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.*;
 public class CityController {
     private final CityService cityService;
 
-    @PostMapping("/add")
-    public Integer add(@RequestBody @Valid CityAddRequest request){
-        return cityService.add(request);
+    @PostMapping
+    public Integer saveCity(@RequestBody @Valid CityAddRequest request){
+        return cityService.save(request);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable @NotNull Integer id){
         cityService.delete(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public CityUpdateResponse update(@PathVariable @NotNull Integer id, @RequestBody @Valid CityUpdateRequest request){
         return cityService.update(id, request);
     }

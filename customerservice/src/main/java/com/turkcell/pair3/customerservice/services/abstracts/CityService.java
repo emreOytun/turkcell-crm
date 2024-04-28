@@ -5,7 +5,7 @@ import com.turkcell.pair3.customerservice.services.dtos.requests.CityUpdateReque
 import com.turkcell.pair3.customerservice.services.dtos.responses.CityUpdateResponse;
 
 public interface CityService {
-    Integer add(CityAddRequest request);
+    Integer save(CityAddRequest request);
 
     void delete(Integer id);
 

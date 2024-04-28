@@ -24,17 +24,17 @@ public class CustomerController {
     private final IndividualCustomerService individualCustomerService;
 
     @PostMapping
-    public IndividualCustomerAddResponse add(@RequestBody @Valid IndividualCustomerAddRequest individualCustomerAddRequest) {
-        return individualCustomerService.add(individualCustomerAddRequest);
+    public IndividualCustomerAddResponse save(@RequestBody @Valid IndividualCustomerAddRequest individualCustomerAddRequest) {
+        return individualCustomerService.saveCustomer(individualCustomerAddRequest);
     }
 
-    @PostMapping("search")
-    public List<IndividualCustomerSearchResponse> search(@RequestBody @Valid IndividualCustomerSearchRequest request)
+    @PostMapping("/search")
+    public List<IndividualCustomerSearchResponse> searchCustomer(@RequestBody @Valid IndividualCustomerSearchRequest request)
     {
-        return individualCustomerService.search(request);
+        return individualCustomerService.searchCustomer(request);
     }
 
-    @GetMapping("getInfo/{customerId}")
+    @GetMapping("/{customerId}")
     public IndividualCustomerInfoResponse getInfo(@PathVariable @NotBlank String customerId)
     {
         return individualCustomerService.getCustomerInfo(customerId);
@@ -48,6 +48,6 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     public IndividualCustomerInfoResponse updateCustomer(@PathVariable @NotNull Integer id, @RequestBody @Valid IndividualCustomerUpdateRequest request) {
-        return individualCustomerService.update(id, request);
+        return individualCustomerService.updateCustomer(id, request);
     }
 }

@@ -20,7 +20,7 @@ public class CityServiceImpl implements CityService {
     private final CityRepository cityRepository;
 
     @Override
-    public Integer add(CityAddRequest request) {
+    public Integer save(CityAddRequest request) {
 
         City city = CityMapper.INSTANCE.cityFromAddRequest(request);
 

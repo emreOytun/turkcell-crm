@@ -18,8 +18,8 @@ public class AddressController {
     private final AddressService addressService;
 
     @PostMapping
-    public Integer add(@RequestBody @Valid AddressAddRequest request) {
-        return addressService.add(request);
+    public Integer save(@RequestBody @Valid AddressAddRequest request) {
+        return addressService.save(request);
     }
 
     @DeleteMapping("/{id}")

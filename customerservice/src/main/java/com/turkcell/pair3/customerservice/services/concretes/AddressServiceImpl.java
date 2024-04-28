@@ -21,7 +21,7 @@ public class AddressServiceImpl implements AddressService {
     private final AddressRepository addressRepository;
 
     @Override
-    public Integer add(AddressAddRequest request) {
+    public Integer save(AddressAddRequest request) {
         Address address = AddressMapper.INSTANCE.addressFromAddRequest(request);
 
         address = addressRepository.save(address);

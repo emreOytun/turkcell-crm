@@ -11,9 +11,9 @@ import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCust
 import java.util.List;
 
 public interface IndividualCustomerService {
-    IndividualCustomerAddResponse add(IndividualCustomerAddRequest individualCustomerAddRequest);
+    IndividualCustomerAddResponse saveCustomer(IndividualCustomerAddRequest individualCustomerAddRequest);
     IndividualCustomerInfoResponse getCustomerInfo(String customerId);
-    List<IndividualCustomerSearchResponse> search(IndividualCustomerSearchRequest request);
-    IndividualCustomerInfoResponse update(Integer id, IndividualCustomerUpdateRequest request);
+    List<IndividualCustomerSearchResponse> searchCustomer(IndividualCustomerSearchRequest request);
+    IndividualCustomerInfoResponse updateCustomer(Integer id, IndividualCustomerUpdateRequest request);
     List<IndividualCustomerInfoResponse> getAll(SearchByPageRequest searchByPageRequest);
 }
