@@ -45,5 +45,4 @@ public class IndividualCustomer extends Customer{
 
     @Column(name = "home_phone")
     private String homePhone;
-
 }

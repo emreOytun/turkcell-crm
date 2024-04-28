@@ -3,10 +3,10 @@ package com.turkcell.pair3.customerservice.controllers;
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
-import com.turkcell.pair3.customerservice.services.dtos.requests.SearchIndividualCustomerRequest;
+import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerSearchRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerAddResponse;
 import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerInfoResponse;
-import com.turkcell.pair3.customerservice.services.dtos.responses.SearchIndividualCustomerResponse;
+import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerSearchResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,7 +29,7 @@ public class CustomerController {
     }
 
     @PostMapping("search")
-    public List<SearchIndividualCustomerResponse> search(@RequestBody @Valid SearchIndividualCustomerRequest request)
+    public List<IndividualCustomerSearchResponse> search(@RequestBody @Valid IndividualCustomerSearchRequest request)
     {
         return individualCustomerService.search(request);
     }

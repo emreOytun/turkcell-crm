@@ -7,13 +7,14 @@ import com.turkcell.pair3.customerservice.repositories.IndividualCustomerReposit
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
-import com.turkcell.pair3.customerservice.services.dtos.requests.SearchIndividualCustomerRequest;
+import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerSearchRequest;
 import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerAddResponse;
 import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerInfoResponse;
-import com.turkcell.pair3.customerservice.services.dtos.responses.SearchIndividualCustomerResponse;
+import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerSearchResponse;
 import com.turkcell.pair3.customerservice.services.mapper.IndividualCustomerMapper;
 import com.turkcell.pair3.customerservice.services.messages.CustomerMessages;
 import com.turkcell.pair3.customerservice.services.rules.IndividualCustomerBusinessRules;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -23,15 +24,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-
+@RequiredArgsConstructor
 public class IndividualCustomerServiceImpl implements IndividualCustomerService {
     private final IndividualCustomerRepository individualCustomerRepository;
     private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
-
-    public IndividualCustomerServiceImpl(IndividualCustomerRepository customerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules) {
-        this.individualCustomerRepository = customerRepository;
-        this.individualCustomerBusinessRules = individualCustomerBusinessRules;
-    }
 
     @Override
     public IndividualCustomerAddResponse add(IndividualCustomerAddRequest individualCustomerAddRequest) {
@@ -47,8 +43,8 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     }
 
     @Override
-    public List<SearchIndividualCustomerResponse> search(SearchIndividualCustomerRequest request) {
-            List<SearchIndividualCustomerResponse> response = individualCustomerRepository.search(request);
+    public List<IndividualCustomerSearchResponse> search(IndividualCustomerSearchRequest request) {
+            List<IndividualCustomerSearchResponse> response = individualCustomerRepository.search(request);
 
             if(response.isEmpty()) {
                 throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);

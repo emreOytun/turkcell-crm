@@ -32,39 +32,8 @@ public class Customer extends BaseEntity {
     @Column(name = "email", nullable = false)
     private String email;
 
-
     @Column(name = "gsm_number", nullable = false)
     private String gsmNumber;
-
-    /* Individual - Customer
-    @Column(name = "nationality_id", nullable = false)
-    private int nationalityId;
-
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @Column(name="second_name")
-    private String secondName;
-
-    @Column(name = "birth_date", nullable = false)
-    private LocalDate birthDate;
-
-    @Column(name = "gender", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private EnumGender gender;
-
-    @Column(name = "father_name")
-    private String fatherName;
-
-    @Column(name = "mother_name")
-    private String motherName;
-
-    @Column(name = "home_phone")
-    private String homePhone;
-    */
 
     @Column(name = "role", nullable = false)
     private String role;
