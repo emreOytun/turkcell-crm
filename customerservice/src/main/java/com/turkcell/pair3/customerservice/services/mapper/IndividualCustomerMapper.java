@@ -28,7 +28,7 @@ public interface IndividualCustomerMapper {
 
     IndividualCustomerAddResponse individualCustomerAddResponseFromCustomer(IndividualCustomer customer);
 
-    /*default UUID mapToInfo(String info){
-        return UUID.fromString(info);
-    }*/
+    IndividualCustomer individualCustomerFromUpdateRequest(IndividualCustomerUpdateRequest request);
+
+
 }

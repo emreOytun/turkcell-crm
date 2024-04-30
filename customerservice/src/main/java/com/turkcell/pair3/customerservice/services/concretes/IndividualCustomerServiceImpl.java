@@ -1,6 +1,6 @@
 package com.turkcell.pair3.customerservice.services.concretes;
 
-import com.turkcell.pair3.core.exception.types.BusinessException;
+import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
@@ -79,7 +79,12 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
             throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
         }
 
+
         IndividualCustomer updatedCustomer = customer.get();
+
+        if(individualCustomerRepository.isNationalityIdExists(request.getNationalityId()) && !updatedCustomer.getNationalityId().equals(request.getNationalityId())){
+            throw new BusinessException(CustomerMessages.NATIONALITY_ID_ALREADY_EXISTS);
+        }
 
         IndividualCustomerMapper.INSTANCE.updateIndividualCustomerField(updatedCustomer, request);
 

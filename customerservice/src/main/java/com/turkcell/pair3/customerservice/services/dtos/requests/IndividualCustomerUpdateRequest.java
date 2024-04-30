@@ -4,6 +4,7 @@ import com.turkcell.pair3.customerservice.enums.EnumGender;
 import com.turkcell.pair3.customerservice.services.constants.Messages;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,7 @@ public class IndividualCustomerUpdateRequest {
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private LocalDate birthDate;
 
+    @Size(min = 11, max = 11, message = "Nationality ID must be exactly 11 characters")
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private String nationalityId;
 }
