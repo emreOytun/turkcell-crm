@@ -82,7 +82,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
         IndividualCustomer updatedCustomer = customer.get();
 
-        if(individualCustomerRepository.isNationalityIdExists(request.getNationalityId()) && !updatedCustomer.getNationalityId().equals(request.getNationalityId())){
+        if(individualCustomerRepository.existsByNationalityId(request.getNationalityId()) && !updatedCustomer.getNationalityId().equals(request.getNationalityId())){
             throw new BusinessException(CustomerMessages.NATIONALITY_ID_ALREADY_EXISTS);
         }
 

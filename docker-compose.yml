@@ -26,11 +26,7 @@ services:
       - common
 
   customer-service:
-    build:
-      context: ./customerservice
-      args:
-        GITHUB_USERNAME: ${GITHUB_USERNAME}
-        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    build: ./customerservice
     ports:
       - "8083:8083"
     environment:

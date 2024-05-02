@@ -14,7 +14,7 @@ public interface IndividualCustomerRepository extends JpaRepository<IndividualCu
 
     Optional<IndividualCustomer> findByCustomerId(String customerId);
 
-    Boolean isNationalityIdExists(String nationalityId);
+    Boolean existsByNationalityId(String nationalityId);
 
     @Query("Select new com.turkcell.pair3.customerservice.services.dtos.responses." +
             "IndividualCustomerSearchResponse(c.customerId, c.firstName, c.lastName, c.secondName, c.nationalityId)" +
