@@ -16,6 +16,7 @@ public interface AddressMapper {
 
     @Mapping(target = "customer.id", source = "request.customerId")
     @Mapping(target = "city.id", source = "request.cityId")
+    @Mapping(target = "primary", constant = "true")
     Address addressFromAddRequest(AddressAddRequest request);
 
     @Mapping(target="id", ignore=true)

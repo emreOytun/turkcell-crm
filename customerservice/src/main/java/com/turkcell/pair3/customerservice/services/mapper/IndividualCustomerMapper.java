@@ -28,7 +28,6 @@ public interface IndividualCustomerMapper {
 
     IndividualCustomerAddResponse individualCustomerAddResponseFromCustomer(IndividualCustomer customer);
 
-    IndividualCustomer individualCustomerFromUpdateRequest(IndividualCustomerUpdateRequest request);
 
 
 }

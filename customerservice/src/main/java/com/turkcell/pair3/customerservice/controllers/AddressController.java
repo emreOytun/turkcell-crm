@@ -31,4 +31,9 @@ public class AddressController {
     public AddressUpdateResponse update(@PathVariable @NotNull Integer id, @RequestBody @Valid AddressUpdateRequest request){
         return addressService.update(id, request);
     }
+
+    @PatchMapping("/{id}")
+    public void makeAddressPrimary(@PathVariable Integer id) {
+        addressService.makePrimary(id);
+    }
 }

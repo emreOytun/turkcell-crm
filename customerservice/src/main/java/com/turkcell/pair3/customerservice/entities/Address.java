@@ -33,4 +33,7 @@ public class Address extends BaseEntity {
     @JoinColumn(name = "customer_id")
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Customer customer;
+
+    @Column(name = "is_primary", nullable = false)
+    private boolean isPrimary;
 }
