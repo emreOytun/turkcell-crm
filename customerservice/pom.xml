@@ -94,6 +94,14 @@
 <!--		</dependency>-->
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/emreOytun/turkcell-crm-core</url>
+		</repository>
+	</repositories>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
