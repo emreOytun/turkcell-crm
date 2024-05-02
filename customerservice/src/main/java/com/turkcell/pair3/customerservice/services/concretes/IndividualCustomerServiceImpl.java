@@ -1,6 +1,6 @@
 package com.turkcell.pair3.customerservice.services.concretes;
 
-import com.turkcell.pair3.customerservice.core.exception.types.BusinessException;
+import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
