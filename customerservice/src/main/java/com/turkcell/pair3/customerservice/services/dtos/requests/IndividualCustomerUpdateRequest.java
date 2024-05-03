@@ -32,7 +32,7 @@ public class IndividualCustomerUpdateRequest {
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String fatherName;
 
-    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    //@NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String secondName;
 
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)

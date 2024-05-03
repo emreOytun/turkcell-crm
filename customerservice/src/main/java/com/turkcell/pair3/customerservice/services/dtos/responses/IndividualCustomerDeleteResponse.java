@@ -1,4 +1,4 @@
-package com.turkcell.pair3.customerservice.services.dtos.requests;
+package com.turkcell.pair3.customerservice.services.dtos.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,14 +9,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class IndividualCustomerSearchRequest
-{
-    private String nationalityId;
-    private String customerId;
+public class IndividualCustomerDeleteResponse {
+
     private String accountNumber;
+    private String email;
+    private String nationalityId;
     private String gsmNumber;
     private String firstName;
     private String lastName;
-    // TODO : search by Order Number
-}
+    private String secondName;
 
+}

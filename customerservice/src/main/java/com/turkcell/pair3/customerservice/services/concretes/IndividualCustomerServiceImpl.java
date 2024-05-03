@@ -6,11 +6,10 @@ import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
+import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerContactUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerSearchRequest;
-import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerAddResponse;
-import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerInfoResponse;
-import com.turkcell.pair3.customerservice.services.dtos.responses.IndividualCustomerSearchResponse;
+import com.turkcell.pair3.customerservice.services.dtos.responses.*;
 import com.turkcell.pair3.customerservice.services.mapper.IndividualCustomerMapper;
 import com.turkcell.pair3.customerservice.services.messages.CustomerMessages;
 import com.turkcell.pair3.customerservice.services.rules.IndividualCustomerBusinessRules;
@@ -72,13 +71,17 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     }
 
     @Override
+    public CheckNationalityIdResponse checkNationalityId(String nationalityId) {
+        return new CheckNationalityIdResponse(individualCustomerRepository.existsByNationalityId(nationalityId));
+    }
+
+    @Override
     public IndividualCustomerInfoResponse updateCustomer(Integer id, IndividualCustomerUpdateRequest request){
         Optional<IndividualCustomer> customer = individualCustomerRepository.findById(id);
 
         if(customer.isEmpty()){
             throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
         }
-
 
         IndividualCustomer updatedCustomer = customer.get();
 
@@ -91,5 +94,38 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         updatedCustomer = individualCustomerRepository.save(updatedCustomer);
 
         return IndividualCustomerMapper.INSTANCE.individualCustomerInfoResponseFromCustomer(updatedCustomer);
+    }
+
+    @Override
+    public IndividualCustomerDeleteResponse deleteCustomer(String customerId) {
+        Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(customerId);
+
+        if(customer.isEmpty()){
+            throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
+        }
+
+        //TODO : Eğer aktif bir ürünü varsa “Since the customer has active products,
+        // the customer cannot be deleted.” Uyarı mesajı gösterilecektir.
+
+        individualCustomerRepository.delete(customer.get());
+
+        return IndividualCustomerMapper.INSTANCE.individualCustomerDeleteResponseFromCustomer(customer.get());
+    }
+
+    @Override
+    public void updateContact(String customerId, IndividualCustomerContactUpdateRequest request) {
+        Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(customerId);
+
+        if(customer.isEmpty()){
+            throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
+        }
+
+        IndividualCustomer updatedCustomer = customer.get();
+        updatedCustomer.setEmail(request.getEmail());
+        updatedCustomer.setGsmNumber(request.getMobilePhone());
+        updatedCustomer.setHomePhone(request.getHomePhone());
+        updatedCustomer.setFax(request.getFax());
+
+        updatedCustomer = individualCustomerRepository.save(updatedCustomer);
     }
 }

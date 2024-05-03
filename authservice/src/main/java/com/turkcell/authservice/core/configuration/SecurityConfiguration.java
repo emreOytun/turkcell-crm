@@ -1,6 +1,5 @@
 package com.turkcell.authservice.core.configuration;
 
-import com.turkcell.pair3.core.configuration.BaseSecurityConfiguration;
 import com.turkcell.pair3.core.configuration.BaseSecurityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

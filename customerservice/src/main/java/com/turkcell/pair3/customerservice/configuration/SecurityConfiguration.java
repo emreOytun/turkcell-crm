@@ -19,7 +19,7 @@ public class SecurityConfiguration {
         baseSecurityService.configureCoreSecurity(http);
 
         http.authorizeHttpRequests(
-                (req)->req.requestMatchers("/api/customers").hasAnyAuthority("admin")
+                (req)->req.requestMatchers("/api/customers/**").hasAnyAuthority("admin")
                         .requestMatchers("/api/cities/**").hasAnyAuthority("admin")
                         .requestMatchers("/api/addresses/**").hasAnyAuthority("admin")
         );

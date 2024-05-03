@@ -15,16 +15,3 @@ public class CustomerserviceApplication {
 	}
 
 }
-
-/*
-
-discovery server - gateway server : didar
-core(security) - authservice : ersel
-customer service(service(abstract,concrete), exceptions,rules,messages) : furkan
-customer service(repositories,entities) : betül
-service(dto,mapper,constants) : emre
-configserver - configfiles : ahmet
-docker-compose - dockerfile - core : taha
-controller - feignclient - dependencies : arda
-
- */
