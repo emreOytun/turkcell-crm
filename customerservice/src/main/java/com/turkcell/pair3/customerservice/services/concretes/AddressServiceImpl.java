@@ -66,15 +66,19 @@ public class AddressServiceImpl implements AddressService {
         if(address.isEmpty()){
             throw new BusinessException(AddressMessages.NO_ADDRESS_FOUND);
         }
+        //TODO convert for to stream
+        List<Address> addressList = addressRepository.findByCustomerId(address.get().getCustomer().getId());
+        for (Address a : addressList) {
+            if(a.isPrimary()==true){
+                a.setPrimary(false);
+                addressRepository.save(a);
+                break;
+            }
+        }
 
         Address addressUpdated = address.get();
         addressUpdated.setPrimary(true);
-
-        Address oldPrimaryAddress = addressRepository.findPrimaryAddressByAddressId(id);
-        oldPrimaryAddress.setPrimary(false);
-
         addressRepository.save(addressUpdated);
-        addressRepository.save(oldPrimaryAddress);
     }
 
 

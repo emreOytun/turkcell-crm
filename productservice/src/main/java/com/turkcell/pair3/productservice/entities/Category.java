@@ -9,21 +9,21 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "campaigns")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Campaign {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "campaign_name", nullable = false)
-    private String campaignName;
+    @Column(name = "category_name", nullable = false)
+    private String categoryName;
 
     @Column(name = "product")
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "campaign")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "category")
     private List<Product> productList;
 }
