@@ -1,5 +1,6 @@
 package com.turkcell.pair3.customerservice.services.concretes;
 
+import com.turkcell.pair3.core.enums.EnumState;
 import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
@@ -34,6 +35,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
         individualCustomerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
         customer.setCustomerId(UUID.randomUUID().toString());
+        customer.setState(EnumState.ACTIVE);
         individualCustomerRepository.save(customer);
 
         IndividualCustomerAddResponse response = IndividualCustomerMapper.INSTANCE.individualCustomerAddResponseFromCustomer(customer);
@@ -106,8 +108,8 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
         //TODO : Eğer aktif bir ürünü varsa “Since the customer has active products,
         // the customer cannot be deleted.” Uyarı mesajı gösterilecektir.
-
-        individualCustomerRepository.delete(customer.get());
+        customer.get().setState(EnumState.PASSIVE);
+        individualCustomerRepository.save(customer.get());
 
         return IndividualCustomerMapper.INSTANCE.individualCustomerDeleteResponseFromCustomer(customer.get());
     }

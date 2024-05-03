@@ -1,5 +1,6 @@
 package com.turkcell.pair3.customerservice.entities;
 
+import com.turkcell.pair3.core.enums.EnumState;
 import com.turkcell.pair3.customerservice.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,9 +27,6 @@ public class Customer extends BaseEntity {
     @Column(name="customer_id")
     private String customerId;
 
-    @Column(name = "account_number", nullable = false)
-    private String accountNumber;
-
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -41,7 +39,10 @@ public class Customer extends BaseEntity {
     @Column(name = "fax")
     private String fax;
 
-    @Column(name = "address")
+    @Column(name = "state")
+    @Enumerated(EnumType.STRING)
+    private EnumState state;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer")
     private List<Address> address;
 }
