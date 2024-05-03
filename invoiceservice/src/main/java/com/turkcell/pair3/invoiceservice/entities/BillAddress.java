@@ -1,6 +1,5 @@
-package com.turkcell.pair3.customerservice.entities;
+package com.turkcell.pair3.invoiceservice.entities;
 
-import com.turkcell.pair3.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,18 +7,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "bill_addresses")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cities")
-public class City extends BaseEntity {
-
+@NoArgsConstructor
+public class BillAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "city_name", nullable = false)
-    private String cityName;
+    @JoinColumn(name = "bill_account_id")
+    @ManyToOne
+    private BillAccount billAccount;
+
+    @Column(name="address_id")
+    private int addressId;
 }
