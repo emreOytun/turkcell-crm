@@ -9,5 +9,4 @@ public interface BillAccountService {
     AddBillAccountResponse createBillAccount(AddBillAccountRequest addBillAccountRequest);
     UpdateBillAccountRequest updateBillAccount(UpdateBillAccountRequest updateBillAccountRequest);
 
-
 }

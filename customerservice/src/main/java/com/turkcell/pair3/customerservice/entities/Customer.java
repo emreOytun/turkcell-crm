@@ -27,14 +27,8 @@ public class Customer extends BaseEntity {
     @Column(name="customer_id")
     private String customerId;
 
-    @Column(name = "email", nullable = false)
-    private String email;
-
     @Column(name = "gsm_number", nullable = false)
     private String gsmNumber;
-
-    @Column(name = "role", nullable = false)
-    private String role;
 
     @Column(name = "fax")
     private String fax;
@@ -45,4 +39,7 @@ public class Customer extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer")
     private List<Address> address;
+
+    @Column(name = "user_id")
+    private Integer userId;
 }

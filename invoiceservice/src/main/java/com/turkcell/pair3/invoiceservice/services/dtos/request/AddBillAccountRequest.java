@@ -10,7 +10,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddBillAccountRequest {
-    private int customerId;
+
+    //TODO : Validation
+    private Integer customerId;
+
     private String accountName;
+
+    private Integer addressId;
 
 }

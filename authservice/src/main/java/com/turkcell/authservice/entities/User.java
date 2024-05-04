@@ -19,7 +19,7 @@ public class User implements UserDetails {
     @Column(name="id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name="password")
     private String password;
     @Column(name="email")

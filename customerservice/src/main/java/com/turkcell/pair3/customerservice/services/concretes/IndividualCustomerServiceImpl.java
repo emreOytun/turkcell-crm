@@ -123,7 +123,8 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         }
 
         IndividualCustomer updatedCustomer = customer.get();
-        updatedCustomer.setEmail(request.getEmail());
+        // TODO handle email
+        //updatedCustomer.setEmail(request.getEmail());
         updatedCustomer.setGsmNumber(request.getMobilePhone());
         updatedCustomer.setHomePhone(request.getHomePhone());
         updatedCustomer.setFax(request.getFax());

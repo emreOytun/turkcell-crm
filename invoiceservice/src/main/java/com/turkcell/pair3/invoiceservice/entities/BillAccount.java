@@ -37,9 +37,9 @@ public class BillAccount extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private EnumAccountType accountType;
 
-    @Column(name = "state")
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private EnumState state;
+    private EnumState status;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "billAccount")
     private List<BillAddress> billAddressList;

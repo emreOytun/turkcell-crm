@@ -11,6 +11,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gatewayserver" />
+        <module name="common" />
         <module name="authservice" />
         <module name="productservice" />
         <module name="invoiceservice" />

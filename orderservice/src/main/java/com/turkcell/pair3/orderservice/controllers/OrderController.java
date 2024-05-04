@@ -8,5 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/orders")
 public class OrderController {
     @GetMapping
-    public int getId() { return 10; }
+    public int getId() {
+        return 10;
+    }
 }
