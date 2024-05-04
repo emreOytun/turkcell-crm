@@ -28,6 +28,8 @@ public class User implements UserDetails {
     private String firstName;
     @Column(name="lastName")
     private String lastName;
+    @Column(name="profilePictureUrl")
+    private String profilePictureUrl;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
