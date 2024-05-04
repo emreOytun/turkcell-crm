@@ -23,5 +23,6 @@ public class BillAddress {
     private BillAccount billAccount;
 
     @Column(name="address_id")
-    private int addressId;
+    private Integer addressId;
+
 }

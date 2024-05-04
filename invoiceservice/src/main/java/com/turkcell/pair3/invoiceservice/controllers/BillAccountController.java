@@ -39,4 +39,12 @@ public class BillAccountController {
         billAccountService.deleteBillAccount(invoiceId);
     }
 
+    //test method
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
+
+
 }

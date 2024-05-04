@@ -9,6 +9,7 @@ import com.turkcell.pair3.invoiceservice.entities.BillAccount;
 import com.turkcell.pair3.invoiceservice.entities.BillAddress;
 import com.turkcell.pair3.invoiceservice.repositories.BillAccountRepository;
 import com.turkcell.pair3.invoiceservice.services.abstracts.BillAccountService;
+import com.turkcell.pair3.invoiceservice.services.abstracts.BillAddressService;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.AddBillAccountRequest;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.AddBillAddressRequest;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.UpdateBillAccountRequest;
@@ -25,7 +26,7 @@ public class BillAccountServiceImpl implements BillAccountService {
     private final BillAccountRepository billAccountRepository;
     private final CustomerServiceClient customerServiceClient;
     private final ProductServiceClient productServiceClient;
-
+    private final BillAddressService billAddressService;
 
     @Override
     public void createBillAccount(AddBillAccountRequest request) {
@@ -33,13 +34,11 @@ public class BillAccountServiceImpl implements BillAccountService {
         billAccount.setCustomerId(request.getCustomerId());
         billAccount.setAccountName(request.getAccountName());
 
+        BillAccount savedAccount = billAccountRepository.save(billAccount);
+
         if (request.getAddressId() != null) {
-            billAccount.setBillAddressList(new ArrayList<>());
             for (Integer addressId : request.getAddressId()) {
-                BillAddress billAddress = new BillAddress();
-                billAddress.setAddressId(addressId);
-                billAddress.setBillAccount(billAccount); // Set the association
-                billAccount.getBillAddressList().add(billAddress);
+                billAddressService.saveBillAddress(addressId, savedAccount);
             }
         }
         billAccountRepository.save(billAccount);
@@ -59,6 +58,11 @@ public class BillAccountServiceImpl implements BillAccountService {
         }
         else throw new BusinessException("Account has product");
 
+    }
 
+    @Override
+    public BillAccount getBillAccountById(Integer billAccountId) {
+        // TODO : remove magic string
+        return billAccountRepository.findById(billAccountId).orElseThrow(() -> new BusinessException("Bill Account not found"));
     }
 }

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 @Getter
@@ -23,10 +25,13 @@ public class Product {
     private String productName;
 
     @Column(name = "prod_offer_id", nullable = false)
-    private Integer prod_offer_id;
+    private Integer offerId;
 
-    @Column(name = "prod_spec_id", nullable = false)
-    private Integer prod_spec_id;
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
+    @Column(name = "price", nullable = false)
+    private Double price;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "campaign_id")
@@ -35,5 +40,12 @@ public class Product {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    //manytomany with specification
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_specs",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "specification_id"))
+    private List<Specification> specifications;
 
 }
