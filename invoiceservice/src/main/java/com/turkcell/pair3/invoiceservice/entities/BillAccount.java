@@ -28,10 +28,10 @@ public class BillAccount extends BaseEntity {
     private int customerId;
 
     @Column(name = "account_number")
-    private int AccountNumber;
+    private int accountNumber;
 
     @Column(name = "account_name")
-    private String AccountName;
+    private String accountName;
 
     @Column(name = "account_type")
     @Enumerated(EnumType.STRING)
