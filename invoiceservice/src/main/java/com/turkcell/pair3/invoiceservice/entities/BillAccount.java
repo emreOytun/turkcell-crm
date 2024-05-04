@@ -25,10 +25,10 @@ public class BillAccount extends BaseEntity {
     private Integer id;
 
     @Column(name = "cutomer_id")
-    private int customerId;
+    private Integer customerId;
 
     @Column(name = "account_number")
-    private int accountNumber;
+    private Integer accountNumber;
 
     @Column(name = "account_name")
     private String accountName;

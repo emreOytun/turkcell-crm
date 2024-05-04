@@ -6,7 +6,8 @@ import com.turkcell.pair3.invoiceservice.services.dtos.responses.AddBillAccountR
 
 public interface BillAccountService {
 
-    AddBillAccountResponse createBillAccount(AddBillAccountRequest addBillAccountRequest);
+    void createBillAccount(AddBillAccountRequest addBillAccountRequest);
     UpdateBillAccountRequest updateBillAccount(UpdateBillAccountRequest updateBillAccountRequest);
 
+    void deleteBillAccount(Integer invoiceId);
 }

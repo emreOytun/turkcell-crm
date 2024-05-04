@@ -64,4 +64,9 @@ public class CustomerController {
     public void updateContact(@PathVariable @NotBlank String customerId, @RequestBody @Valid IndividualCustomerContactUpdateRequest request) {
         individualCustomerService.updateContact(customerId, request);
     }
+
+    @GetMapping("/getInfo")
+    public String getInfo() {
+        return "Hello";
+    }
 }
