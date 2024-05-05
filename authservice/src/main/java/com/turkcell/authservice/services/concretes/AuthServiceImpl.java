@@ -1,10 +1,13 @@
 package com.turkcell.authservice.services.concretes;
 
+import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.authservice.services.abstracts.UserService;
 import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
 import com.turkcell.pair3.core.jwt.JwtService;
 import com.turkcell.authservice.services.abstracts.AuthService;
 import com.turkcell.authservice.services.dtos.requests.LoginRequest;
+import com.turkcell.pair3.core.services.abstracts.MessageService;
+import com.turkcell.pair3.messages.Messages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,6 +25,7 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final UserService userService;
+    private final MessageService messageService;
 
     @Override
     public void register(RegisterRequest request) {
@@ -41,8 +45,7 @@ public class AuthServiceImpl implements AuthService {
                     user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList()
             );
         } catch (AuthenticationException ex) {
-            System.out.println("Invalid credentials: " + ex.getMessage());
-            throw new RuntimeException("E-posta veya şifre hatalı.");
+            throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.WRONG_USERNAME_OR_PASSWORD));
         }
     }
 }

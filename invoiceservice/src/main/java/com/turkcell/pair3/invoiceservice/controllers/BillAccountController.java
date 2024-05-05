@@ -1,7 +1,10 @@
 package com.turkcell.pair3.invoiceservice.controllers;
 
+import com.turkcell.pair3.core.exception.types.BusinessException;
+import com.turkcell.pair3.core.services.abstracts.MessageService;
 import com.turkcell.pair3.invoiceservice.clients.CustomerServiceClient;
 import com.turkcell.pair3.invoiceservice.services.abstracts.BillAccountService;
+import com.turkcell.pair3.messages.Messages;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.AddBillAccountRequest;
 import com.turkcell.pair3.invoiceservice.services.dtos.responses.AddBillAccountResponse;
 import jakarta.validation.Valid;
@@ -16,13 +19,14 @@ import org.springframework.web.bind.annotation.*;
 public class BillAccountController {
     private final BillAccountService billAccountService;
     private final CustomerServiceClient customerServiceClient;
+    private final MessageService messageService;
 
     @PostMapping
     public void create(@RequestBody @Valid AddBillAccountRequest addBillAccountRequest) {
         billAccountService.createBillAccount(addBillAccountRequest);
     }
 
-    // get all invoices of a customer
+    // TODO get invoices by customer id
     @GetMapping("/{customerId}")
     public AddBillAccountResponse getInvoices(@PathVariable Integer customerId) {
         return null;
@@ -41,8 +45,8 @@ public class BillAccountController {
 
     //test method
     @GetMapping("/test")
-    public String test() {
-        return "test";
+    public String test() throws BusinessException {
+        throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.NO_CUSTOMER_FOUND));
     }
 
 

@@ -1,4 +1,4 @@
-package com.turkcell;
+package com.turkcell.pair3;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

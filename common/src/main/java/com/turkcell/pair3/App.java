@@ -1,4 +1,4 @@
-package com.turkcell;
+package com.turkcell.pair3;
 
 /**
  * Hello world!

@@ -1,12 +1,14 @@
 package com.turkcell.pair3.productservice.services.concretes;
 
+import com.turkcell.pair3.core.exception.types.BusinessException;
+import com.turkcell.pair3.core.services.abstracts.MessageService;
+import com.turkcell.pair3.messages.Messages;
 import com.turkcell.pair3.productservice.entities.Product;
 import com.turkcell.pair3.productservice.entities.ProductSpecDetails;
 import com.turkcell.pair3.productservice.entities.Specification;
 import com.turkcell.pair3.productservice.repositories.ProductRepository;
 import com.turkcell.pair3.productservice.repositories.ProductSpecDetailsRepository;
 import com.turkcell.pair3.productservice.repositories.SpecificationRepository;
-import com.turkcell.pair3.productservice.services.abstracts.ProductService;
 import com.turkcell.pair3.productservice.services.abstracts.SpecificationService;
 import com.turkcell.pair3.productservice.services.dto.requests.AddProductSpecificationRequest;
 import com.turkcell.pair3.productservice.services.dto.requests.AddSpecificationRequest;
@@ -15,7 +17,6 @@ import com.turkcell.pair3.productservice.services.dto.responses.AddProductSpecif
 import com.turkcell.pair3.productservice.services.dto.responses.AddSpecificationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -24,7 +25,8 @@ public class SpecificationServiceImpl implements SpecificationService {
 
     private final SpecificationRepository specificationRepository;
     private final ProductSpecDetailsRepository productSpecDetailsRepository;
-    
+    private final MessageService messageService;
+
     // TODO : convert to service
     private final ProductRepository productRepository;
 
@@ -52,17 +54,15 @@ public class SpecificationServiceImpl implements SpecificationService {
             response.setSpecName(specification.get().getSpecName());
             return response;
         } else {
-            // TODO : remove magic string
-            throw new RuntimeException("Specification not found");
+            throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.SPECIFICATION_NOT_FOUND));
         }
 
     }
 
     @Override
     public Integer assignProductSpec(AssignProductSpecificationRequest request) {
-        // TODO : remove magic string
-        Product product = productRepository.findById(request.getProductId()).orElseThrow(() -> new RuntimeException("Product not found"));
-        Specification specification = specificationRepository.findById(request.getSpecificationId()).orElseThrow(() -> new RuntimeException("Specification not found"));
+        Product product = productRepository.findById(request.getProductId()).orElseThrow(() -> new BusinessException(messageService.getMessage(Messages.BusinessErrors.PRODUCT_NOT_FOUND)));
+        Specification specification = specificationRepository.findById(request.getSpecificationId()).orElseThrow(() -> new BusinessException(messageService.getMessage(Messages.BusinessErrors.SPECIFICATION_NOT_FOUND)));
         product.getSpecifications().add(specification);
         Integer result = productRepository.save(product).getId();
         return result;

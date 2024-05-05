@@ -16,7 +16,6 @@ public class IndividualCustomerBusinessRules
     private final IndividualCustomerRepository individualCustomerRepository;
 
 
-
     public void customerWithSameNationalityIdCanNotExist(String nationalityId)
     {
         Optional<IndividualCustomer> customer = individualCustomerRepository.findByNationalityId(nationalityId);

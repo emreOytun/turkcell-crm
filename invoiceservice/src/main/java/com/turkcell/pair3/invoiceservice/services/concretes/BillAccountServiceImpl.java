@@ -1,21 +1,16 @@
 package com.turkcell.pair3.invoiceservice.services.concretes;
 
-import java.util.ArrayList;
-
+import com.turkcell.pair3.messages.Messages;
 import com.turkcell.pair3.core.exception.types.BusinessException;
-import com.turkcell.pair3.invoiceservice.clients.CustomerServiceClient;
+import com.turkcell.pair3.core.services.abstracts.MessageService;
 import com.turkcell.pair3.invoiceservice.clients.ProductServiceClient;
 import com.turkcell.pair3.invoiceservice.entities.BillAccount;
-import com.turkcell.pair3.invoiceservice.entities.BillAddress;
 import com.turkcell.pair3.invoiceservice.repositories.BillAccountRepository;
 import com.turkcell.pair3.invoiceservice.services.abstracts.BillAccountService;
 import com.turkcell.pair3.invoiceservice.services.abstracts.BillAddressService;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.AddBillAccountRequest;
-import com.turkcell.pair3.invoiceservice.services.dtos.request.AddBillAddressRequest;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.UpdateBillAccountRequest;
-import com.turkcell.pair3.invoiceservice.services.dtos.responses.AddBillAccountResponse;
-import com.turkcell.pair3.invoiceservice.services.mapper.BillAccountMapper;
-import com.turkcell.pair3.invoiceservice.services.mapper.BillAddressMapper;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +19,9 @@ import org.springframework.stereotype.Service;
 public class BillAccountServiceImpl implements BillAccountService {
 
     private final BillAccountRepository billAccountRepository;
-    private final CustomerServiceClient customerServiceClient;
     private final ProductServiceClient productServiceClient;
     private final BillAddressService billAddressService;
+    private final MessageService messageService;
 
     @Override
     public void createBillAccount(AddBillAccountRequest request) {
@@ -52,17 +47,16 @@ public class BillAccountServiceImpl implements BillAccountService {
     @Override
     public void deleteBillAccount(Integer id) {
 
-        // TODO : remove magic string
         if (!productServiceClient.hasAccountProduct(id)){
             billAccountRepository.deleteById(id);
         }
-        else throw new BusinessException("Account has product");
+        else throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT));
 
     }
 
     @Override
     public BillAccount getBillAccountById(Integer billAccountId) {
-        // TODO : remove magic string
-        return billAccountRepository.findById(billAccountId).orElseThrow(() -> new BusinessException("Bill Account not found"));
+        return billAccountRepository.findById(billAccountId).orElseThrow(()
+                -> new BusinessException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_NOT_FOUND)));
     }
 }
