@@ -36,4 +36,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Column(name = "product_price", nullable = false)
+    private double productPrice;
+
 }
