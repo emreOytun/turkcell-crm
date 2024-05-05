@@ -14,9 +14,6 @@ public interface BillAccountService {
     void deleteBillAccount(Integer invoiceId);
     UpdateBillAccountRequest updateBillAccount(UpdateBillAccountRequest updateBillAccountRequest);
     BillAccount getBillAccountById(Integer billAccountId);
-
     List<BillAccountResponse> getInvoices(Integer customerId);
-
-
-
+    List<Integer> getAllInvoiceIds(Integer customerId);
 }

@@ -2,6 +2,8 @@ package com.turkcell.pair3.customerservice.services.concretes;
 
 import com.turkcell.pair3.core.enums.EnumState;
 import com.turkcell.pair3.core.exception.types.BusinessException;
+import com.turkcell.pair3.customerservice.clients.InvoiceServiceClient;
+import com.turkcell.pair3.customerservice.clients.OrderServiceClient;
 import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
@@ -19,6 +21,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -28,6 +31,8 @@ import java.util.UUID;
 public class IndividualCustomerServiceImpl implements IndividualCustomerService {
     private final IndividualCustomerRepository individualCustomerRepository;
     private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
+    private final InvoiceServiceClient invoiceServiceClient;
+    private final OrderServiceClient orderServiceClient;
 
     @Override
     public IndividualCustomerAddResponse saveCustomer(IndividualCustomerAddRequest individualCustomerAddRequest) {
@@ -105,6 +110,19 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         if(customer.isEmpty()){
             throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
         }
+
+        List<Integer> billAccountIdList = invoiceServiceClient.getAllInvoiceIds(customer.get().getId());
+        if(!billAccountIdList.isEmpty()){
+            throw new BusinessException(CustomerMessages.BILL_ACCOUNT_NOT_FOUND);
+        }
+
+        List<Date> orderIds = orderServiceClient.getOrderIdsByBillAccountId(billAccountIdList);
+
+
+
+
+
+
 
         //TODO : Eğer aktif bir ürünü varsa “Since the customer has active products,
         // the customer cannot be deleted.” Uyarı mesajı gösterilecektir.

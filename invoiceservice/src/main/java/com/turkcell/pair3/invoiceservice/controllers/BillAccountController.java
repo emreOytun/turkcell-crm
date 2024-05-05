@@ -51,6 +51,11 @@ public class BillAccountController {
         throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.NO_CUSTOMER_FOUND));
     }
 
+    @GetMapping("/{customerId}/getAllInvoiceIds")
+    public List<Integer> getAllInvoiceIds(@PathVariable Integer customerId) {
+        return billAccountService.getAllInvoiceIds(customerId);
+    }
+
 
 
 }

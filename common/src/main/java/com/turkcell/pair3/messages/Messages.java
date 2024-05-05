@@ -37,6 +37,9 @@ public class Messages {
         public static final String NO_CUSTOMER_FOUND_GIVEN_ID = "noCustomerFoundGivenId";
         public static final String NO_CITY_FOUND_GIVEN_ID = "noCityFoundGivenId";
         public static final String NO_BILL_ACCOUNT_FOUND_GIVEN_ID = "noBillAccountFoundGivenId";
+        public static final String NO_PRODUCT_FOUND_GIVEN_ID = "noProductFoundGivenId";
+        public static final String ORDER_NOT_FOUND = "orderNotFound";
+
     }
 
     public static class ValidationErrors {

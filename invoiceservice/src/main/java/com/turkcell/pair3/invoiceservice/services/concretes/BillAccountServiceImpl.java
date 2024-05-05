@@ -28,6 +28,7 @@ public class BillAccountServiceImpl implements BillAccountService {
     private final BillAddressService billAddressService;
     private final MessageService messageService;
 
+
     @Override
     public void createBillAccount(AddBillAccountRequest request) {
         BillAccount billAccount = new BillAccount();
@@ -74,11 +75,20 @@ public class BillAccountServiceImpl implements BillAccountService {
             throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.NO_BILL_ACCOUNT_FOUND_GIVEN_ID));
         }
 
-        List<BillAccountResponse> billAccountResponses = billAccounts.stream()
+        List<BillAccountResponse> billAccountResponsesList = billAccounts.stream()
                 .map(BillAccountMapper.INSTANCE::toResponse)
                 .collect(Collectors.toList());
 
-        return billAccountResponses;
+        return billAccountResponsesList;
 
+    }
+
+    @Override
+    public List<Integer> getAllInvoiceIds(Integer customerId) {
+        List<Integer> billAccountIds = billAccountRepository.findIdsByCustomerId(customerId);
+        if(billAccountIds.isEmpty())
+            throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.NO_BILL_ACCOUNT_FOUND_GIVEN_ID));
+
+        return billAccountIds;
     }
 }

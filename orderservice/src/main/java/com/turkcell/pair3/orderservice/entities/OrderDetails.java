@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,14 +15,16 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Document(value="orders")
-public class Order {
+@Document(value="order_details")
+public class OrderDetails {
     @Id
     private String id;
     private String orderId;
-    private LocalDateTime orderDate;
-    private String customerId;
-    private double totalPrice;
-    private List<Integer> products;
-
+    private Integer productId;
+    private Integer productSpecDetailsId;
+    private LocalDateTime servisStartDate;
+    private LocalDateTime servisEndDate;
+    private Integer quantity;
+    private Double orderPrice;
+    private Double discount;
 }
