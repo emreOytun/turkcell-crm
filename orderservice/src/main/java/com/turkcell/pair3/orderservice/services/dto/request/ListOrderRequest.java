@@ -16,5 +16,4 @@ public class ListOrderRequest {
     private String customerId;
     private double totalPrice;
 
-
 }

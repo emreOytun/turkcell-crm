@@ -21,6 +21,4 @@ public class ProductController {
         return productService.findProductPriceById(id);
     }
 
-
-
 }

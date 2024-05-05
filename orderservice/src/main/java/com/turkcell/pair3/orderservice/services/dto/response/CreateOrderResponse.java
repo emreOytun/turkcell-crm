@@ -17,6 +17,4 @@ public class CreateOrderResponse {
     private String customerId;
     private List<String> products;
 
-
-
 }

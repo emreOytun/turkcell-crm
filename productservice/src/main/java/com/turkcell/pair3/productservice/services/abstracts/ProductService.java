@@ -4,5 +4,4 @@ public interface ProductService {
 
     double findProductPriceById(int id);
 
-
 }

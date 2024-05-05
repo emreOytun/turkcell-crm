@@ -21,8 +21,6 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final ProductServiceClient productServiceClient;
 
-
-
     @Override
     public double calculateTotalPrice(CreateOrderRequest request) {
         return request.getProducts().stream().mapToDouble(productId ->
