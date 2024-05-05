@@ -23,10 +23,8 @@ public class Messages {
         public static final String BILL_ACCOUNT_HAS_BILL = "billAccountHasBill";
         public static final String BILL_ACCOUNT_HAS_NO_PAYMENT = "billAccountHasNoPayment";
         public static final String BILL_ACCOUNT_HAS_PAYMENT = "billAccountHasPayment";
-
         public static final String NATIONAL_ID_ALREADY_EXISTS = "nationalIdAlreadyExists";
         public static final String NO_ADDRESS_FOUND = "noAddressFound";
-
         public static final String WRONG_USERNAME_OR_PASSWORD = "wrongUsernameOrPassword";
         public static final String NO_USER_FOUND = "noUserFound";
         public static final String USER_ALREADY_EXISTS = "userAlreadyExists";
@@ -35,8 +33,10 @@ public class Messages {
         public static final String NO_ROLE_FOUND = "noRoleFound";
         public static final String ROLE_ALREADY_EXISTS = "roleAlreadyExists";
         public static final String NO_CUSTOMER_FOUND = "noCustomerFound";
-
         public static final String SPECIFICATION_NOT_FOUND = "specificationNotFound";
+        public static final String NO_CUSTOMER_FOUND_GIVEN_ID = "noCustomerFoundGivenId";
+        public static final String NO_CITY_FOUND_GIVEN_ID = "noCityFoundGivenId";
+        public static final String NO_BILL_ACCOUNT_FOUND_GIVEN_ID = "noBillAccountFoundGivenId";
     }
 
     public static class ValidationErrors {

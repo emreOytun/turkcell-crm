@@ -12,4 +12,5 @@ import org.mapstruct.factory.Mappers;
 public interface BillAccountMapper {
     BillAccountMapper INSTANCE = Mappers.getMapper(BillAccountMapper.class);
 
+    BillAccountResponse toResponse(BillAccount billAccount);
 }

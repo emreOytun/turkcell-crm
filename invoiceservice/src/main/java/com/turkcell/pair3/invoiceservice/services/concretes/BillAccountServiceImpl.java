@@ -1,5 +1,7 @@
 package com.turkcell.pair3.invoiceservice.services.concretes;
 
+import com.turkcell.pair3.invoiceservice.services.dtos.responses.BillAccountResponse;
+import com.turkcell.pair3.invoiceservice.services.mapper.BillAccountMapper;
 import com.turkcell.pair3.messages.Messages;
 import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.core.services.abstracts.MessageService;
@@ -13,6 +15,9 @@ import com.turkcell.pair3.invoiceservice.services.dtos.request.UpdateBillAccount
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -58,5 +63,22 @@ public class BillAccountServiceImpl implements BillAccountService {
     public BillAccount getBillAccountById(Integer billAccountId) {
         return billAccountRepository.findById(billAccountId).orElseThrow(()
                 -> new BusinessException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_NOT_FOUND)));
+    }
+
+    @Override
+    public List<BillAccountResponse> getInvoices(Integer customerId) {
+        // TODO : test this method
+        List<BillAccount> billAccounts = billAccountRepository.findByCustomerId(customerId);
+
+        if(billAccounts.isEmpty()){
+            throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.NO_BILL_ACCOUNT_FOUND_GIVEN_ID));
+        }
+
+        List<BillAccountResponse> billAccountResponses = billAccounts.stream()
+                .map(BillAccountMapper.INSTANCE::toResponse)
+                .collect(Collectors.toList());
+
+        return billAccountResponses;
+
     }
 }
