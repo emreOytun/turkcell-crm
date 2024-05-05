@@ -10,4 +10,6 @@ public interface ProductServiceClient {
 
     @GetMapping("/api/products/findProductPriceById/{id}")
     double findProductPriceById(@PathVariable("id") int id);
+
+
 }

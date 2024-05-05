@@ -24,4 +24,6 @@ public class Order {
     private String customerId;
     private double totalPrice;
     private List<Integer> products;
+
+
 }

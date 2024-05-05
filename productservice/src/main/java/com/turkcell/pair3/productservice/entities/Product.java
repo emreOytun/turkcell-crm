@@ -39,4 +39,6 @@ public class Product {
     @Column(name = "product_price", nullable = false)
     private double productPrice;
 
+
+
 }

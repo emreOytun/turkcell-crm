@@ -15,4 +15,6 @@ public class ListOrderRequest {
     private LocalDate orderDate;
     private String customerId;
     private double totalPrice;
+
+
 }
