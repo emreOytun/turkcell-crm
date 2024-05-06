@@ -1,12 +1,13 @@
 package com.turkcell.pair3.productservice.controllers;
 
+import com.turkcell.pair3.events.CartProductEvent;
+import com.turkcell.pair3.productservice.services.dto.requests.AddProductRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.turkcell.pair3.productservice.services.abstracts.ProductService;
+
+import java.util.List;
 
 @RestController
 @Validated
@@ -20,4 +21,16 @@ public class ProductController {
     public double findProductPriceById(@PathVariable int id) {
         return productService.findProductPriceById(id);
     }
+
+    @PostMapping
+    public void create(@RequestBody AddProductRequest addProductRequest) {
+        productService.create(addProductRequest);
+    }
+
+    @GetMapping("/{cartId}/getProductsByCartId")
+    List<CartProductEvent> getProductsByCartId(@PathVariable Integer cartId){
+        return null;
+    }
+
+
 }

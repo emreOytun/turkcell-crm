@@ -31,7 +31,7 @@ public class BillAccountController {
     // TODO get invoices by customer id
     @GetMapping("/{customerId}")
     public List<BillAccountResponse> getInvoices(@PathVariable Integer customerId) {
-        return null;
+        return billAccountService.getInvoices(customerId);
     }
 
     // update an invoice

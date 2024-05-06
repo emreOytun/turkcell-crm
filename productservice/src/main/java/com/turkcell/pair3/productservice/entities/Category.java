@@ -20,10 +20,9 @@ public class Category {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "category_name", nullable = false)
+    @Column(name = "category_name", nullable = true)
     private String categoryName;
 
-    @Column(name = "product")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "category")
     private List<Product> productList;
 }

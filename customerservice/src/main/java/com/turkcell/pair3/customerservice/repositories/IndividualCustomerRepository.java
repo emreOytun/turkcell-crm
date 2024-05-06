@@ -15,13 +15,16 @@ public interface IndividualCustomerRepository extends JpaRepository<IndividualCu
     Optional<IndividualCustomer> findByCustomerId(String customerId);
 
     Boolean existsByNationalityId(String nationalityId);
-
-    // TODO not working
+    
     @Query("Select new com.turkcell.pair3.customerservice.services.dtos.responses." +
             "IndividualCustomerSearchResponse(c.customerId, c.firstName, c.lastName, c.secondName, c.nationalityId)" +
             " from IndividualCustomer c" +
-            " where ( :#{#request.getNationalityId()} is null or c.nationalityId= :#{#request.getNationalityId()})" +
-            " and ( :#{#request.getCustomerId()} is null or c.customerId= :#{#request.getCustomerId()})")
+            " where (c.customerId LIKE :#{#request.customerId}% OR :#{#request.customerId} IS NULL)" +
+            " AND (c.nationalityId LIKE :#{#request.nationalityId}% OR :#{#request.nationalityId} IS NULL)" +
+            " AND (c.firstName LIKE :#{#request.firstName}% OR :#{#request.firstName} IS NULL)" +
+            " AND (c.lastName LIKE :#{#request.lastName}% OR :#{#request.lastName} IS NULL)"
+    )
     List<IndividualCustomerSearchResponse> search(IndividualCustomerSearchRequest request);
+
 
 }

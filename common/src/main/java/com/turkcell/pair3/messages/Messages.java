@@ -12,7 +12,7 @@ public class Messages {
         public static final String PRODUCT_ALREADY_EXISTS = "productAlreadyExists";
         public static final String PRODUCT_HAS_CUSTOMER = "productHasCustomer";
         public static final String PRODUCT_HAS_NO_CUSTOMER = "productHasNoCustomer";
-
+        public static final String PRODUCT_HAS_NO_CATEGORY = "productHasNoCategory";
         public static final String BILL_ACCOUNT_NOT_FOUND = "billAccountNotFound";
         public static final String BILL_ACCOUNT_ALREADY_EXISTS = "billAccountAlreadyExists";
         public static final String BILL_ACCOUNT_HAS_PRODUCT = "billAccountHasProduct";

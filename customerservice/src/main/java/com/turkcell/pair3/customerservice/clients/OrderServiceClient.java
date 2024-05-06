@@ -2,11 +2,8 @@ package com.turkcell.pair3.customerservice.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.turkcell.pair3.core.configuration.feign.FeignClientConfiguration;
-
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -17,5 +14,5 @@ public interface OrderServiceClient
     int getCustomerIdByOrderId(@RequestParam("orderId") String orderId);
 
     @GetMapping("/getOrderIds")
-    List<LocalDateTime> getOrderIdsByBillAccountId(@RequestParam("values") List<Integer> billAccountIdList);
+    List<Date> getOrderIdsByBillAccountId(@RequestParam("values") List<Integer> billAccountIdList);
 }

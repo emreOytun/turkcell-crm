@@ -20,6 +20,7 @@ public class OrderDetails {
     private String orderId;
     private Integer productId;
     private Integer productSpecDetailsId;
+    private Integer campaignId;
     private Date serviceStartDate;
     private Date serviceEndDate;
     private Integer quantity;

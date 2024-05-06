@@ -5,6 +5,7 @@ import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.customerservice.clients.AuthServiceClient;
 import com.turkcell.pair3.customerservice.clients.InvoiceServiceClient;
 import com.turkcell.pair3.customerservice.clients.OrderServiceClient;
+import com.turkcell.pair3.customerservice.clients.ProductClient;
 import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
@@ -37,6 +38,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     private final InvoiceServiceClient invoiceServiceClient;
     private final OrderServiceClient orderServiceClient;
     private final AuthServiceClient authServiceClient;
+    private final ProductClient productClient;
 
     @Override
     public IndividualCustomerAddResponse saveCustomer(IndividualCustomerAddRequest individualCustomerAddRequest) {
@@ -52,6 +54,8 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         Integer userId = authServiceClient.register(registerEvent);
         customer.setUserId(userId);
         individualCustomerRepository.save(customer);
+        //TODO: test this method
+        productClient.createCart(customer.getId());
 
         return IndividualCustomerMapper.INSTANCE.individualCustomerAddResponseFromCustomer(customer);
     }
@@ -119,24 +123,27 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
         //Eğer aktif bir ürünü varsa “Since the customer has active products,
         //the customer cannot be deleted.” Uyarı mesajı gösterilecektir.
+        System.out.println("here 1");
         Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(customerId);
 
         if(customer.isEmpty()){
             throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
         }
 
+        System.out.println("here 2");
         List<Integer> billAccountIdList = invoiceServiceClient.getAllInvoiceIds(customer.get().getId());
         if(!billAccountIdList.isEmpty()){
             throw new BusinessException(CustomerMessages.BILL_ACCOUNT_NOT_FOUND);
         }
+        System.out.println("here 3");
+        List<Date> endDates = orderServiceClient.getOrderIdsByBillAccountId(billAccountIdList);
 
-        List<LocalDateTime> endDates = orderServiceClient.getOrderIdsByBillAccountId(billAccountIdList);
-        // check local date time with current date time
-        for(LocalDateTime endDate : endDates){
-            if(endDate.isAfter(LocalDateTime.now())){
+        for(Date endDate : endDates){
+            if(endDate.after(new Date(System.currentTimeMillis()))){
                 throw new BusinessException(CustomerMessages.ACTIVE_SERVICE_FOUND);
             }
         }
+        System.out.println("here 5");
         customer.get().setState(EnumState.PASSIVE);
         individualCustomerRepository.save(customer.get());
 

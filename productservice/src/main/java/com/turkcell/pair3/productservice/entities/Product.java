@@ -33,15 +33,14 @@ public class Product {
     @Column(name = "price", nullable = false)
     private Double price;
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "campaign_id")
-    private Campaign campaign;
+//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, optional = false)
+//    @JoinColumn(name = "campaign_id")
+//    private Campaign campaign;
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    //manytomany with specification
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "product_specs",
             joinColumns = @JoinColumn(name = "product_id"),

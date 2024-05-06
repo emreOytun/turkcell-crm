@@ -17,12 +17,12 @@ public class AddressAddRequest {
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private Integer cityId;
 
-    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    @NotNull(message = Messages.ValidationErrors.NOT_BLANK)
     private Integer houseNumber;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String description;
 
-    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    @NotNull(message = Messages.ValidationErrors.NOT_BLANK)
     private Integer customerId;
 }

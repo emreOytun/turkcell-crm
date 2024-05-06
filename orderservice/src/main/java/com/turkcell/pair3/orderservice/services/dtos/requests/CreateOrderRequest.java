@@ -1,5 +1,8 @@
 package com.turkcell.pair3.orderservice.services.dtos.requests;
 
+import com.turkcell.pair3.events.CartProductEvent;
+import com.turkcell.pair3.messages.Messages;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 public class CreateOrderRequest {
 
-    private String customerId;
-    private List<String> products;
+    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
+    private Integer billAccountId;
+
+    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
+    private Integer billAddressId;
+
+    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
+    private Integer cartId;
 
 }

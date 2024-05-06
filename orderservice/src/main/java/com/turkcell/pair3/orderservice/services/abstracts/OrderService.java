@@ -14,7 +14,7 @@ public interface OrderService {
 
     double calculateTotalPrice(CreateOrderRequest request);
 
-    CreateOrderResponse createOrder(CreateOrderRequest createOrderRequest);
+    String createOrder(CreateOrderRequest createOrderRequest);
 
     void deleteOrder(String orderId);
 

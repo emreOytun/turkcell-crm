@@ -18,7 +18,4 @@ public interface OrderMapper {
 
     Order addOrderFromRequest(CreateOrderRequest request);
 
-    CreateOrderResponse fromCreateRequest(Order order);
-
-
 }

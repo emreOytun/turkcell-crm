@@ -16,12 +16,11 @@ import java.util.List;
 public class Order {
     @Id
     private String id;
-    private String orderId;
     private Date orderDate;
-    private String customerId;
-    private double totalPrice;
+    private String orderNumber;
+    private Integer billAddressId;
     private Integer billAccountId;
-    //private List<Integer> products;
+    private double totalPrice;
     private List<OrderDetails> orderDetails;
 }
 

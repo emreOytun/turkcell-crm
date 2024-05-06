@@ -23,7 +23,7 @@ public class Campaign {
     @Column(name = "campaign_name", nullable = false)
     private String campaignName;
 
-    @Column(name = "product")
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "campaign")
-    private List<Product> productList;
+//    @Column(name = "product")
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "campaign")
+//    private List<Product> productList;
 }

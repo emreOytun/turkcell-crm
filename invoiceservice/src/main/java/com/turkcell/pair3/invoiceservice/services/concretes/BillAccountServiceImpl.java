@@ -68,19 +68,16 @@ public class BillAccountServiceImpl implements BillAccountService {
 
     @Override
     public List<BillAccountResponse> getInvoices(Integer customerId) {
-        // TODO : test this method
         List<BillAccount> billAccounts = billAccountRepository.findByCustomerId(customerId);
 
-        if(billAccounts.isEmpty()){
+        if(billAccounts.isEmpty())
             throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.NO_BILL_ACCOUNT_FOUND_GIVEN_ID));
-        }
 
         List<BillAccountResponse> billAccountResponsesList = billAccounts.stream()
                 .map(BillAccountMapper.INSTANCE::toResponse)
                 .collect(Collectors.toList());
 
         return billAccountResponsesList;
-
     }
 
     @Override
