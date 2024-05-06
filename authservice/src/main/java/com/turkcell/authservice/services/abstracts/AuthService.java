@@ -6,4 +6,5 @@ import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
 public interface AuthService {
     void register(RegisterRequest request);
     String login(LoginRequest request);
+    void giveRole(Integer id, Integer roleId);
 }

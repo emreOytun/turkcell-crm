@@ -13,7 +13,6 @@ public class IndividualCustomerSearchRequest
 {
     private String nationalityId;
     private String customerId;
-    private String accountNumber;
     private String gsmNumber;
     private String firstName;
     private String lastName;

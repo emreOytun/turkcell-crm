@@ -12,8 +12,8 @@ public interface OrderRepository extends MongoRepository<Order, String> {
 
     Optional<Order> findOrderByOrderId(String orderId);
 
-    List<Order> findOrdersByBillAccountId(Integer billAccountId);
+    //List<Order> findOrdersByBillAccountId(Integer billAccountId);
 
-    List<Integer> findOrderIdsByBillAccountId(Integer billAccountId);
+    //List<String> findOrderIdsByBillAccountId(Integer billAccountId);
 
 }

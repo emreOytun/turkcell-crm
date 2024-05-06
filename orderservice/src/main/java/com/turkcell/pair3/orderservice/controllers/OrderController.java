@@ -7,6 +7,7 @@ import com.turkcell.pair3.orderservice.services.dtos.responses.ListOrderResponse
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -16,11 +17,6 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
-
-    @GetMapping
-    public int getId() {
-        return 10;
-    }
 
     @PostMapping("/create")
     public CreateOrderResponse createOrder(@RequestBody CreateOrderRequest createOrderRequest) {

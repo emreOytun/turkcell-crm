@@ -39,6 +39,7 @@ public class Messages {
         public static final String NO_BILL_ACCOUNT_FOUND_GIVEN_ID = "noBillAccountFoundGivenId";
         public static final String NO_PRODUCT_FOUND_GIVEN_ID = "noProductFoundGivenId";
         public static final String ORDER_NOT_FOUND = "orderNotFound";
+        public static final String LOGIN_FAILED = "loginFailed";
 
     }
 

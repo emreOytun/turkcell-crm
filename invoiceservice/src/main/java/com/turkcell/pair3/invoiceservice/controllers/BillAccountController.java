@@ -56,6 +56,4 @@ public class BillAccountController {
         return billAccountService.getAllInvoiceIds(customerId);
     }
 
-
-
 }

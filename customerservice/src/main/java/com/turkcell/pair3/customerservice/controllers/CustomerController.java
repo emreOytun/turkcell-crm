@@ -27,6 +27,7 @@ public class CustomerController {
         return individualCustomerService.saveCustomer(individualCustomerAddRequest);
     }
 
+    // TODO not working
     @PostMapping("/search")
     public List<IndividualCustomerSearchResponse> searchCustomer(@RequestBody @Valid IndividualCustomerSearchRequest request)
     {
@@ -65,8 +66,4 @@ public class CustomerController {
         individualCustomerService.updateContact(customerId, request);
     }
 
-    @GetMapping("/getInfo")
-    public String getInfo() {
-        return "Hello";
-    }
 }

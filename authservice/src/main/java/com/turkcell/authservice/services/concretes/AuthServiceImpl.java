@@ -48,4 +48,9 @@ public class AuthServiceImpl implements AuthService {
             throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.WRONG_USERNAME_OR_PASSWORD));
         }
     }
+
+    @Override
+    public void giveRole(Integer id, Integer roleId) {
+        userService.giveRole(id, roleId);
+    }
 }

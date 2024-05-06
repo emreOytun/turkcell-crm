@@ -27,4 +27,12 @@ public class AuthController {
     {
         return authService.login(request);
     }
+
+    //give role to user
+    @PostMapping("/role/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void giveRole(@PathVariable Integer id, @RequestParam Integer roleId)
+    {
+        authService.giveRole(id, roleId);
+    }
 }

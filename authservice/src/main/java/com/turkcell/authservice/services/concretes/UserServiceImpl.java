@@ -1,9 +1,13 @@
 package com.turkcell.authservice.services.concretes;
 
+import com.turkcell.authservice.entities.Role;
 import com.turkcell.authservice.entities.User;
+import com.turkcell.authservice.repositories.RoleRepository;
 import com.turkcell.authservice.repositories.UserRepository;
 import com.turkcell.authservice.services.abstracts.UserService;
 import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
+import com.turkcell.pair3.core.services.abstracts.MessageService;
+import com.turkcell.pair3.messages.Messages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,10 +20,12 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final MessageService messageService;
+    private final RoleRepository roleRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByEmail(username).orElseThrow(() -> new AccessDeniedException("Giriş başarısız."));
+        return userRepository.findByEmail(username).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT)));
     }
 
     @Override
@@ -30,6 +36,15 @@ public class UserServiceImpl implements UserService {
         user.setLastName(request.getLastName());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
+        userRepository.save(user);
+    }
+
+    @Override
+    public void giveRole(Integer id, Integer roleId) {
+        User user = userRepository.findById(id).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT)));
+        //find role with roleId
+        Role role = roleRepository.findById(roleId).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT)));
+        user.getAuthorities().add(role);
         userRepository.save(user);
     }
 }

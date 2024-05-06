@@ -8,6 +8,7 @@ import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageReque
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
+import com.turkcell.pair3.customerservice.services.constants.Messages;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerContactUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
@@ -21,6 +22,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +38,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     @Override
     public IndividualCustomerAddResponse saveCustomer(IndividualCustomerAddRequest individualCustomerAddRequest) {
+        // TODO give userId to customer
         IndividualCustomer customer = IndividualCustomerMapper.INSTANCE.individualCustomerFromAddRequest(individualCustomerAddRequest);
 
         individualCustomerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
@@ -79,7 +82,9 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     @Override
     public CheckNationalityIdResponse checkNationalityId(String nationalityId) {
-        return new CheckNationalityIdResponse(individualCustomerRepository.existsByNationalityId(nationalityId));
+        CheckNationalityIdResponse response = new CheckNationalityIdResponse();
+        response.setAlreadyExist(individualCustomerRepository.existsByNationalityId(nationalityId));
+        return response;
     }
 
     @Override
@@ -105,6 +110,10 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     @Override
     public IndividualCustomerDeleteResponse deleteCustomer(String customerId) {
+        // TODO : test this method
+
+        //Eğer aktif bir ürünü varsa “Since the customer has active products,
+        //the customer cannot be deleted.” Uyarı mesajı gösterilecektir.
         Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(customerId);
 
         if(customer.isEmpty()){
@@ -116,16 +125,13 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
             throw new BusinessException(CustomerMessages.BILL_ACCOUNT_NOT_FOUND);
         }
 
-        List<Date> orderIds = orderServiceClient.getOrderIdsByBillAccountId(billAccountIdList);
-
-
-
-
-
-
-
-        //TODO : Eğer aktif bir ürünü varsa “Since the customer has active products,
-        // the customer cannot be deleted.” Uyarı mesajı gösterilecektir.
+        List<LocalDateTime> endDates = orderServiceClient.getOrderIdsByBillAccountId(billAccountIdList);
+        // check local date time with current date time
+        for(LocalDateTime endDate : endDates){
+            if(endDate.isAfter(LocalDateTime.now())){
+                throw new BusinessException(CustomerMessages.ACTIVE_SERVICE_FOUND);
+            }
+        }
         customer.get().setState(EnumState.PASSIVE);
         individualCustomerRepository.save(customer.get());
 

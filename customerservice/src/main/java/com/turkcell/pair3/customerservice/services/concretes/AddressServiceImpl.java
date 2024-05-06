@@ -24,6 +24,8 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public Integer save(AddressAddRequest request) {
         Address address = AddressMapper.INSTANCE.addressFromAddRequest(request);
+        boolean exist = addressRepository.existsPrimaryAddressByCustomerId(address.getCustomer().getId());
+        if(!exist) address.setPrimary(true);
 
         address = addressRepository.save(address);
 

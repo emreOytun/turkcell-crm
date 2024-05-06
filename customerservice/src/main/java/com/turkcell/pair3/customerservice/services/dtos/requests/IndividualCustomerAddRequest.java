@@ -14,8 +14,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class IndividualCustomerAddRequest {
-    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
-    private String accountNumber;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String email;
@@ -53,5 +51,11 @@ public class IndividualCustomerAddRequest {
     private String mobilePhone;
 
     private String fax;
+
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    private String password;
+
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    private String username;
 
 }

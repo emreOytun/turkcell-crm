@@ -1,10 +1,9 @@
-package com.turkcell.authservice.core.configuration;
+package com.turkcell.pair3.productservice.configuration;
 
 import com.turkcell.pair3.core.configuration.BaseSecurityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -18,13 +17,11 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
         baseSecurityService.configureCoreSecurity(http);
-        http
-                .authorizeHttpRequests(req -> req
-                        .requestMatchers(HttpMethod.POST, "/api/v1/test/**").hasAnyAuthority("admin")
-                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/role/**").hasAnyAuthority("admin")
-                        .anyRequest().authenticated()
-                );
+
+        http.authorizeHttpRequests(
+                (req)->req.requestMatchers("/api/**").hasAnyAuthority("admin")
+        );
+
         return http.build();
     }
-
 }

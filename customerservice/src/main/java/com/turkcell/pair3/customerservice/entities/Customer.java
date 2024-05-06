@@ -42,4 +42,6 @@ public class Customer extends BaseEntity {
 
     @Column(name = "user_id")
     private Integer userId;
+
+    // TODO add email
 }
