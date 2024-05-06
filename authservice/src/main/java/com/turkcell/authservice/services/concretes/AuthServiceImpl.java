@@ -2,11 +2,11 @@ package com.turkcell.authservice.services.concretes;
 
 import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.authservice.services.abstracts.UserService;
-import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
 import com.turkcell.pair3.core.jwt.JwtService;
 import com.turkcell.authservice.services.abstracts.AuthService;
 import com.turkcell.authservice.services.dtos.requests.LoginRequest;
 import com.turkcell.pair3.core.services.abstracts.MessageService;
+import com.turkcell.pair3.events.RegisterEvent;
 import com.turkcell.pair3.messages.Messages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,8 +28,8 @@ public class AuthServiceImpl implements AuthService {
     private final MessageService messageService;
 
     @Override
-    public void register(RegisterRequest request) {
-        userService.add(request);
+    public Integer register(RegisterEvent request) {
+        return userService.add(request);
     }
 
     @Override

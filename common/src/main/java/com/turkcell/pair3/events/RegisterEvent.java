@@ -1,5 +1,4 @@
-package com.turkcell.authservice.services.dtos.requests;
-
+package com.turkcell.pair3.events;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequest {
+public class RegisterEvent {
 
-    private String password;
     private String email;
+    private String password;
 
 }
+

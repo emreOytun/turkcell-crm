@@ -24,10 +24,6 @@ public class User implements UserDetails {
     private String password;
     @Column(name="email")
     private String email;
-    @Column(name="firstName")
-    private String firstName;
-    @Column(name="lastName")
-    private String lastName;
     @Column(name="profilePictureUrl")
     private String profilePictureUrl;
 

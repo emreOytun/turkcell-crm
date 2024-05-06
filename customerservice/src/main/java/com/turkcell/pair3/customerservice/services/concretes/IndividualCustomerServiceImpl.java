@@ -2,13 +2,13 @@ package com.turkcell.pair3.customerservice.services.concretes;
 
 import com.turkcell.pair3.core.enums.EnumState;
 import com.turkcell.pair3.core.exception.types.BusinessException;
+import com.turkcell.pair3.customerservice.clients.AuthServiceClient;
 import com.turkcell.pair3.customerservice.clients.InvoiceServiceClient;
 import com.turkcell.pair3.customerservice.clients.OrderServiceClient;
 import com.turkcell.pair3.customerservice.core.business.paging.SearchByPageRequest;
 import com.turkcell.pair3.customerservice.entities.IndividualCustomer;
 import com.turkcell.pair3.customerservice.repositories.IndividualCustomerRepository;
 import com.turkcell.pair3.customerservice.services.abstracts.IndividualCustomerService;
-import com.turkcell.pair3.customerservice.services.constants.Messages;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerAddRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerContactUpdateRequest;
 import com.turkcell.pair3.customerservice.services.dtos.requests.IndividualCustomerUpdateRequest;
@@ -17,6 +17,7 @@ import com.turkcell.pair3.customerservice.services.dtos.responses.*;
 import com.turkcell.pair3.customerservice.services.mapper.IndividualCustomerMapper;
 import com.turkcell.pair3.customerservice.services.messages.CustomerMessages;
 import com.turkcell.pair3.customerservice.services.rules.IndividualCustomerBusinessRules;
+import com.turkcell.pair3.events.RegisterEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -35,20 +36,24 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
     private final InvoiceServiceClient invoiceServiceClient;
     private final OrderServiceClient orderServiceClient;
+    private final AuthServiceClient authServiceClient;
 
     @Override
     public IndividualCustomerAddResponse saveCustomer(IndividualCustomerAddRequest individualCustomerAddRequest) {
-        // TODO give userId to customer
         IndividualCustomer customer = IndividualCustomerMapper.INSTANCE.individualCustomerFromAddRequest(individualCustomerAddRequest);
 
         individualCustomerBusinessRules.customerWithSameNationalityIdCanNotExist(customer.getNationalityId());
         customer.setCustomerId(UUID.randomUUID().toString());
         customer.setState(EnumState.ACTIVE);
+
+        RegisterEvent registerEvent = new RegisterEvent();
+        registerEvent.setEmail(individualCustomerAddRequest.getEmail());
+        registerEvent.setPassword(individualCustomerAddRequest.getPassword());
+        Integer userId = authServiceClient.register(registerEvent);
+        customer.setUserId(userId);
         individualCustomerRepository.save(customer);
 
-        IndividualCustomerAddResponse response = IndividualCustomerMapper.INSTANCE.individualCustomerAddResponseFromCustomer(customer);
-
-        return response;
+        return IndividualCustomerMapper.INSTANCE.individualCustomerAddResponseFromCustomer(customer);
     }
 
     @Override

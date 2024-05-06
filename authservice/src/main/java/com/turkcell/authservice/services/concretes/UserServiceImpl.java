@@ -5,8 +5,8 @@ import com.turkcell.authservice.entities.User;
 import com.turkcell.authservice.repositories.RoleRepository;
 import com.turkcell.authservice.repositories.UserRepository;
 import com.turkcell.authservice.services.abstracts.UserService;
-import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
 import com.turkcell.pair3.core.services.abstracts.MessageService;
+import com.turkcell.pair3.events.RegisterEvent;
 import com.turkcell.pair3.messages.Messages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
@@ -29,14 +29,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void add(RegisterRequest request) {
+    public Integer add(RegisterEvent request) {
         User user = new User();
         user.setEmail(request.getEmail());
-        user.setFirstName(request.getFirstName());
-        user.setLastName(request.getLastName());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        userRepository.save(user);
+        return userRepository.save(user).getId();
     }
 
     @Override

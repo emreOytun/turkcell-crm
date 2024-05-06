@@ -35,7 +35,7 @@ public class IndividualCustomerAddRequest {
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String role;
 
-    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    //@NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private LocalDate birthDate;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
