@@ -53,4 +53,9 @@ public class AuthServiceImpl implements AuthService {
     public void giveRole(Integer id, Integer roleId) {
         userService.giveRole(id, roleId);
     }
+
+    @Override
+    public void updateEmail(Integer id, String email) {
+        userService.updateEmail(id, email);
+    }
 }

@@ -39,10 +39,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void giveRole(Integer id, Integer roleId) {
-        User user = userRepository.findById(id).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT)));
+        User user = userRepository.findById(id).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.NO_USER_FOUND)));
         //find role with roleId
-        Role role = roleRepository.findById(roleId).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT)));
+        Role role = roleRepository.findById(roleId).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.NO_ROLE_FOUND)));
         user.getAuthorities().add(role);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updateEmail(Integer id, String email) {
+        User user = userRepository.findById(id).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.NO_USER_FOUND)));
+        user.setEmail(email);
         userRepository.save(user);
     }
 }

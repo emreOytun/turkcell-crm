@@ -7,4 +7,5 @@ public interface AuthService {
     Integer register(RegisterEvent request);
     String login(LoginRequest request);
     void giveRole(Integer id, Integer roleId);
+    void updateEmail(Integer id, String email);
 }

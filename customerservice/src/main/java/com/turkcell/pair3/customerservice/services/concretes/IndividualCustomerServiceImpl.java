@@ -144,20 +144,19 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     }
 
     @Override
-    public void updateContact(String customerId, IndividualCustomerContactUpdateRequest request) {
-        Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(customerId);
+    public void updateContact(IndividualCustomerContactUpdateRequest request) {
+        Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(request.getCustomerId());
 
         if(customer.isEmpty()){
             throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
         }
 
         IndividualCustomer updatedCustomer = customer.get();
-        // TODO handle email
-        //updatedCustomer.setEmail(request.getEmail());
+        authServiceClient.updateEmail(updatedCustomer.getUserId(), request.getEmail());
+
         updatedCustomer.setGsmNumber(request.getMobilePhone());
         updatedCustomer.setHomePhone(request.getHomePhone());
         updatedCustomer.setFax(request.getFax());
-
-        updatedCustomer = individualCustomerRepository.save(updatedCustomer);
+        individualCustomerRepository.save(updatedCustomer);
     }
 }

@@ -17,5 +17,5 @@ public interface IndividualCustomerService {
     List<IndividualCustomerInfoResponse> getAll(SearchByPageRequest searchByPageRequest);
     CheckNationalityIdResponse checkNationalityId(String nationalityId);
     IndividualCustomerDeleteResponse deleteCustomer(String customerId);
-    void updateContact(String customerId, IndividualCustomerContactUpdateRequest request);
+    void updateContact(IndividualCustomerContactUpdateRequest request);
 }

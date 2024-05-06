@@ -26,8 +26,6 @@ public class SpecificationServiceImpl implements SpecificationService {
     private final SpecificationRepository specificationRepository;
     private final ProductSpecDetailsRepository productSpecDetailsRepository;
     private final MessageService messageService;
-
-    // TODO : convert to service
     private final ProductRepository productRepository;
 
     @Override

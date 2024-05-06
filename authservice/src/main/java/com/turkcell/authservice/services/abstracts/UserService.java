@@ -7,4 +7,6 @@ public interface UserService extends UserDetailsService {
     Integer add(RegisterEvent request);
 
     void giveRole(Integer id, Integer roleId);
+
+    void updateEmail(Integer id, String email);
 }

@@ -61,9 +61,10 @@ public class CustomerController {
         return individualCustomerService.deleteCustomer(customerId);
     }
 
-    @PutMapping("/{customerId}/contact")
-    public void updateContact(@PathVariable @NotBlank String customerId, @RequestBody @Valid IndividualCustomerContactUpdateRequest request) {
-        individualCustomerService.updateContact(customerId, request);
+    @PutMapping("/contact")
+    public void updateContact(@RequestBody IndividualCustomerContactUpdateRequest request) {
+        System.out.println("here 0");
+        individualCustomerService.updateContact(request);
     }
 
 }

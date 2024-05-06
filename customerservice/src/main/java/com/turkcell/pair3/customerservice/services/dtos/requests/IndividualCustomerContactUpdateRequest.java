@@ -14,6 +14,9 @@ import lombok.Setter;
 public class IndividualCustomerContactUpdateRequest {
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
+    private String customerId;
+
+    @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private String email;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)

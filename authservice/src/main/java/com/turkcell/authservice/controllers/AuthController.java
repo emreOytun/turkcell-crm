@@ -36,4 +36,13 @@ public class AuthController {
     {
         authService.giveRole(id, roleId);
     }
+
+    //update email
+    @PutMapping("/email/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateEmail(@PathVariable Integer id, @RequestParam String email)
+    {
+        // TODO return response
+        authService.updateEmail(id, email);
+    }
 }

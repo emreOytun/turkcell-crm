@@ -3,8 +3,8 @@ package com.turkcell.pair3.customerservice.clients;
 import com.turkcell.pair3.core.configuration.feign.FeignClientConfiguration;
 import com.turkcell.pair3.events.RegisterEvent;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name="authservice",path = "/api/v1/auth", configuration = FeignClientConfiguration.class)
 public interface AuthServiceClient {
@@ -12,4 +12,6 @@ public interface AuthServiceClient {
     @PostMapping("/register")
     Integer register(@RequestBody RegisterEvent request);
 
+    @PutMapping("/email/{id}")
+    void updateEmail(@PathVariable Integer id, @RequestParam String email);
 }
