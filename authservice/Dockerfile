@@ -10,10 +10,12 @@ RUN mkdir -p /root/.m2 && \
 
 COPY . /app/
 
+COPY ~/.m2/repository/com/turkcell/common/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar /app/lib/common.jar
+
 RUN mvn clean package -s /root/.m2/settings.xml -DskipTests
 
 FROM openjdk:17-jdk
 
-COPY --from=build /app/target/invoiceservice-0.0.1-SNAPSHOT.jar /app/invoiceservice.jar
+COPY --from=build /app/target/authservice-0.0.1-SNAPSHOT.jar /app/authservice.jar
 
-CMD ["java", "-jar", "/app/invoiceservice.jar"]
+CMD ["java", "-jar", "/app/authservice.jar"]

@@ -28,7 +28,6 @@ public class BillAccountController {
         billAccountService.createBillAccount(addBillAccountRequest);
     }
 
-    // TODO get invoices by customer id
     @GetMapping("/{customerId}")
     public List<BillAccountResponse> getInvoices(@PathVariable Integer customerId) {
         return billAccountService.getInvoices(customerId);

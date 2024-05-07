@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public double calculateTotalPrice(CreateOrderRequest request) {
         //return request.getProducts().stream().mapToDouble(productId -> productServiceClient.findProductPriceById(Integer.parseInt(productId))).sum();
-        return 3.8;
+        return 1000;
     }
 
     @Override
@@ -45,7 +45,6 @@ public class OrderServiceImpl implements OrderService {
 
         order.setOrderDate(new Date());
         order.setOrderNumber(UUID.randomUUID().toString());
-        //TODO calculate total price
         order.setTotalPrice(calculateTotalPrice(createOrderRequest));
         String orderId = orderRepository.save(order).getId();
 
@@ -73,31 +72,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Date> getDatesOfOrdersByBillAccounts(List<Integer> billAccountIdList) {
-        // TODO test this method it used in IndividualCustomerServiceImpl deleteCustomer method
-        // I have billAccount Ids in billAccountIdList
-        //each order has a billAccountId
-        //I need to find all orders by billAccountId
-        //Each Order entity has orderDetails list
-        //Each OrderDetails entity has serviceEndDate
-
-        //orders(1).orderDetails -> orderDetails1, orderDetails2
-        //orders(2).orderDetails -> orderDetails3, orderDetails4, orderDetails5
-        //orderDetails1.serviceEndDate
-
-
-
-//        List<Order> orders = new ArrayList<>();
-//        for (Integer billAccountId : billAccountIdList) {
-//            orders.addAll(orderRepository.findOrdersByBillAccountId(billAccountId));
-//        }
-//
-//        List<LocalDateTime> dates = new ArrayList<>();
-//        for (Order order : orders) {
-//            for (int i = 0; i < order.getOrderDetails().size(); i++) {
-//                dates.add(order.getOrderDetails().get(i).getServiceEndDate());
-//            }
-//        }
-//        return dates;
         return null;
     }
 

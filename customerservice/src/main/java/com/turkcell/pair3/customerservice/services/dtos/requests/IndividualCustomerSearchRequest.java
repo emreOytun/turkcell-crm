@@ -18,6 +18,5 @@ public class IndividualCustomerSearchRequest
     private String gsmNumber;
     private String firstName;
     private String lastName;
-    // TODO : search by Order Number
 }
 

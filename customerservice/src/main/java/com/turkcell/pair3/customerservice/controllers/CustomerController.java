@@ -27,7 +27,6 @@ public class CustomerController {
         return individualCustomerService.saveCustomer(individualCustomerAddRequest);
     }
 
-    // TODO not working
     @PostMapping("/search")
     public List<IndividualCustomerSearchResponse> searchCustomer(@RequestBody @Valid IndividualCustomerSearchRequest request)
     {

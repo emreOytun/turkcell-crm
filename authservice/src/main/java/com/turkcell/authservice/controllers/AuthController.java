@@ -42,7 +42,6 @@ public class AuthController {
     @ResponseStatus(HttpStatus.OK)
     public void updateEmail(@PathVariable Integer id, @RequestParam String email)
     {
-        // TODO return response
         authService.updateEmail(id, email);
     }
 }

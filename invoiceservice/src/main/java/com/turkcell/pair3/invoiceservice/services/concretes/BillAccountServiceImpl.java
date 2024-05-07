@@ -57,7 +57,6 @@ public class BillAccountServiceImpl implements BillAccountService {
             billAccountRepository.deleteById(id);
         }
         else throw new BusinessException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT));
-
     }
 
     @Override

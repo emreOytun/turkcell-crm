@@ -20,8 +20,10 @@ public class SecurityConfiguration {
         baseSecurityService.configureCoreSecurity(http);
         http
                 .authorizeHttpRequests(req -> req
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/test/**").hasAnyAuthority("admin")
-                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/role/**").hasAnyAuthority("admin")
+                        //.requestMatchers(HttpMethod.GET, "/api/v1/auth/role/**").hasAnyAuthority("admin")
                         .anyRequest().authenticated()
                 );
         return http.build();

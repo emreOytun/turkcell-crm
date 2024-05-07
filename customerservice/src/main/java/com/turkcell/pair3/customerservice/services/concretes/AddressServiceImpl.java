@@ -68,7 +68,7 @@ public class AddressServiceImpl implements AddressService {
         if(address.isEmpty()){
             throw new BusinessException(AddressMessages.NO_ADDRESS_FOUND);
         }
-        //TODO convert for to stream
+
         List<Address> addressList = addressRepository.findByCustomerId(address.get().getCustomer().getId());
         for (Address a : addressList) {
             if(a.isPrimary()==true){

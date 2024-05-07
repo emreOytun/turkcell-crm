@@ -54,7 +54,6 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         Integer userId = authServiceClient.register(registerEvent);
         customer.setUserId(userId);
         individualCustomerRepository.save(customer);
-        //TODO: test this method
         productClient.createCart(customer.getId());
 
         return IndividualCustomerMapper.INSTANCE.individualCustomerAddResponseFromCustomer(customer);
@@ -84,7 +83,6 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     @Override
     public List<IndividualCustomerInfoResponse> getAll(SearchByPageRequest searchByPageRequest) {
-        //TODO: will be replaced with paginated find method
         Pageable pageable = PageRequest.of(searchByPageRequest.getPageNo(), searchByPageRequest.getPageSize());
         return IndividualCustomerMapper.INSTANCE.individualCustomerInfoResponsesFromCustomers(individualCustomerRepository.findAll(pageable).stream().toList());
     }
@@ -106,9 +104,16 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
         IndividualCustomer updatedCustomer = customer.get();
 
+<<<<<<< Updated upstream
         if(individualCustomerRepository.existsByNationalityId(request.getNationalityId()) && !updatedCustomer.getNationalityId().equals(request.getNationalityId())){
             throw new BusinessException(CustomerMessages.NATIONALITY_ID_ALREADY_EXISTS);
         }
+=======
+        if (individualCustomerRepository.existsByNationalityId(request.getNationalityId()))
+            if (!updatedCustomer.getNationalityId().equals(request.getNationalityId())) {
+                throw new BusinessException(CustomerMessages.NATIONALITY_ID_ALREADY_EXISTS);
+            }
+>>>>>>> Stashed changes
 
         IndividualCustomerMapper.INSTANCE.updateIndividualCustomerField(updatedCustomer, request);
 
@@ -119,23 +124,19 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     @Override
     public IndividualCustomerDeleteResponse deleteCustomer(String customerId) {
-        // TODO : test this method
 
         //Eğer aktif bir ürünü varsa “Since the customer has active products,
         //the customer cannot be deleted.” Uyarı mesajı gösterilecektir.
-        System.out.println("here 1");
         Optional<IndividualCustomer> customer = individualCustomerRepository.findByCustomerId(customerId);
 
         if(customer.isEmpty()){
             throw new BusinessException(CustomerMessages.NO_CUSTOMER_FOUND);
         }
 
-        System.out.println("here 2");
         List<Integer> billAccountIdList = invoiceServiceClient.getAllInvoiceIds(customer.get().getId());
         if(!billAccountIdList.isEmpty()){
             throw new BusinessException(CustomerMessages.BILL_ACCOUNT_NOT_FOUND);
         }
-        System.out.println("here 3");
         List<Date> endDates = orderServiceClient.getOrderIdsByBillAccountId(billAccountIdList);
 
         for(Date endDate : endDates){
@@ -143,7 +144,6 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
                 throw new BusinessException(CustomerMessages.ACTIVE_SERVICE_FOUND);
             }
         }
-        System.out.println("here 5");
         customer.get().setState(EnumState.PASSIVE);
         individualCustomerRepository.save(customer.get());
 
