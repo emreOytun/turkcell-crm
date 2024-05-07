@@ -19,6 +19,4 @@ public class CorparateCustomer extends Customer{
 
     private String companyName;
 
-    private BigDecimal taxNumber;
-
 }
