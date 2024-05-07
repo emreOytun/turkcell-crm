@@ -30,7 +30,6 @@
 		</dependency>
 
 		<dependency>
-<<<<<<< Updated upstream
 			<groupId>com.turkcell.pair3</groupId>
 			<artifactId>core</artifactId>
 			<version>2.3.0</version>
@@ -43,8 +42,6 @@
 		</dependency>
 
 		<dependency>
-=======
->>>>>>> Stashed changes
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
@@ -98,24 +95,13 @@
 			<artifactId>mapstruct-processor</artifactId>
 			<version>${org.mapstruct.version}</version>
 		</dependency>
-<<<<<<< Updated upstream
-=======
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework.cloud</groupId>-->
-		<!--			<artifactId>spring-cloud-config-server</artifactId>-->
-		<!--		</dependency>-->
->>>>>>> Stashed changes
 	</dependencies>
 
 	<repositories>
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-<<<<<<< Updated upstream
 			<url>https://maven.pkg.github.com/ErselEren/turkcell-crm-core</url>
-=======
-			<url>https://maven.pkg.github.com/emreOytun/turkcell-crm-core</url>
->>>>>>> Stashed changes
 		</repository>
 	</repositories>
 
