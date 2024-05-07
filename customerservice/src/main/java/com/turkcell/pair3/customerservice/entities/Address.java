@@ -1,6 +1,6 @@
 package com.turkcell.pair3.customerservice.entities;
 
-import com.turkcell.pair3.customerservice.core.entities.BaseEntity;
+import com.turkcell.pair3.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,4 +33,7 @@ public class Address extends BaseEntity {
     @JoinColumn(name = "customer_id")
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Customer customer;
+
+    @Column(name = "is_primary", nullable = false)
+    private boolean isPrimary;
 }

@@ -1,9 +1,13 @@
 package com.turkcell.authservice.services.concretes;
 
+import com.turkcell.authservice.entities.Role;
 import com.turkcell.authservice.entities.User;
+import com.turkcell.authservice.repositories.RoleRepository;
 import com.turkcell.authservice.repositories.UserRepository;
 import com.turkcell.authservice.services.abstracts.UserService;
-import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
+import com.turkcell.pair3.core.services.abstracts.MessageService;
+import com.turkcell.pair3.events.RegisterEvent;
+import com.turkcell.pair3.messages.Messages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,20 +20,36 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final MessageService messageService;
+    private final RoleRepository roleRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByEmail(username).orElseThrow(() -> new AccessDeniedException("Giriş başarısız."));
+        return userRepository.findByEmail(username).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.BILL_ACCOUNT_HAS_PRODUCT)));
     }
 
     @Override
-    public void add(RegisterRequest request) {
+    public Integer add(RegisterEvent request) {
         User user = new User();
         user.setEmail(request.getEmail());
-        user.setFirstName(request.getFirstName());
-        user.setLastName(request.getLastName());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
+        return userRepository.save(user).getId();
+    }
+
+    @Override
+    public void giveRole(Integer id, Integer roleId) {
+        User user = userRepository.findById(id).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.NO_USER_FOUND)));
+        //find role with roleId
+        Role role = roleRepository.findById(roleId).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.NO_ROLE_FOUND)));
+        user.getAuthorities().add(role);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updateEmail(Integer id, String email) {
+        User user = userRepository.findById(id).orElseThrow(() -> new AccessDeniedException(messageService.getMessage(Messages.BusinessErrors.NO_USER_FOUND)));
+        user.setEmail(email);
         userRepository.save(user);
     }
 }

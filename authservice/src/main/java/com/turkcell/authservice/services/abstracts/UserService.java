@@ -1,8 +1,12 @@
 package com.turkcell.authservice.services.abstracts;
 
-import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
+import com.turkcell.pair3.events.RegisterEvent;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {
-    void add(RegisterRequest request);
+    Integer add(RegisterEvent request);
+
+    void giveRole(Integer id, Integer roleId);
+
+    void updateEmail(Integer id, String email);
 }

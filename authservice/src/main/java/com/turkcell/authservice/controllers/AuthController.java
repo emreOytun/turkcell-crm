@@ -4,6 +4,7 @@ package com.turkcell.authservice.controllers;
 import com.turkcell.authservice.services.abstracts.AuthService;
 import com.turkcell.authservice.services.dtos.requests.LoginRequest;
 import com.turkcell.authservice.services.dtos.requests.RegisterRequest;
+import com.turkcell.pair3.events.RegisterEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,9 @@ public class AuthController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public void register(@RequestBody RegisterRequest request)
+    public Integer register(@RequestBody RegisterEvent request)
     {
-        authService.register(request);
+        return authService.register(request);
     }
 
     @PostMapping("/login")
@@ -26,5 +27,21 @@ public class AuthController {
     public String login(@RequestBody LoginRequest request)
     {
         return authService.login(request);
+    }
+
+    //give role to user
+    @PostMapping("/role/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void giveRole(@PathVariable Integer id, @RequestParam Integer roleId)
+    {
+        authService.giveRole(id, roleId);
+    }
+
+    //update email
+    @PutMapping("/email/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateEmail(@PathVariable Integer id, @RequestParam String email)
+    {
+        authService.updateEmail(id, email);
     }
 }

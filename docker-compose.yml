@@ -25,8 +25,26 @@ services:
     networks:
       - common
 
+  auth-service:
+    build: ./authservice
+    ports:
+      - "8086:8086"
+    environment:
+      - SPRING_CLOUD_CONFIG_PROFILE=prod
+      - CONFIGURL=http://config-server:8079
+    depends_on:
+      - postgres
+      - discovery-server
+      - config-server
+    networks:
+      - common
+
   customer-service:
-    build: ./customerservice
+    build:
+      context: ./customerservice
+      args:
+        GITHUB_USERNAME: ${GITHUB_USERNAME}
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
     ports:
       - "8083:8083"
     environment:

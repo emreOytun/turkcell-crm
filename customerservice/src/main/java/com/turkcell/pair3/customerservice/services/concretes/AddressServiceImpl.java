@@ -12,6 +12,7 @@ import com.turkcell.pair3.customerservice.services.messages.AddressMessages;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,8 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public Integer save(AddressAddRequest request) {
         Address address = AddressMapper.INSTANCE.addressFromAddRequest(request);
+        boolean exist = addressRepository.existsPrimaryAddressByCustomerId(address.getCustomer().getId());
+        if(!exist) address.setPrimary(true);
 
         address = addressRepository.save(address);
 
@@ -58,4 +61,27 @@ public class AddressServiceImpl implements AddressService {
 
         return AddressMapper.INSTANCE.addressUpdateResponseFromAddress(addressUpdated);
     }
+
+    @Override
+    public void makePrimary(Integer id){
+        Optional<Address> address = addressRepository.findById(id);
+        if(address.isEmpty()){
+            throw new BusinessException(AddressMessages.NO_ADDRESS_FOUND);
+        }
+
+        List<Address> addressList = addressRepository.findByCustomerId(address.get().getCustomer().getId());
+        for (Address a : addressList) {
+            if(a.isPrimary()==true){
+                a.setPrimary(false);
+                addressRepository.save(a);
+                break;
+            }
+        }
+
+        Address addressUpdated = address.get();
+        addressUpdated.setPrimary(true);
+        addressRepository.save(addressUpdated);
+    }
+
+
 }

@@ -1,13 +1,12 @@
 package com.turkcell.pair3.orderservice.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +16,11 @@ import java.time.LocalDate;
 public class Order {
     @Id
     private String id;
-    private LocalDate orderDate;
-    private int customerId;
+    private Date orderDate;
+    private String orderNumber;
+    private Integer billAddressId;
+    private Integer billAccountId;
     private double totalPrice;
+    private List<OrderDetails> orderDetails;
 }
+

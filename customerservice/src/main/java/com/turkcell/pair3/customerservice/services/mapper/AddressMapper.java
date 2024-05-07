@@ -9,13 +9,14 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AddressMapper {
 
     AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
 
     @Mapping(target = "customer.id", source = "request.customerId")
     @Mapping(target = "city.id", source = "request.cityId")
+    @Mapping(target = "primary", constant = "false")
     Address addressFromAddRequest(AddressAddRequest request);
 
     @Mapping(target="id", ignore=true)

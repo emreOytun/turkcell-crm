@@ -1,0 +1,4 @@
+com\turkcell\pair3\App.class
+com\turkcell\pair3\messages\Messages$ValidationErrors.class
+com\turkcell\pair3\messages\Messages$BusinessErrors.class
+com\turkcell\pair3\messages\Messages.class

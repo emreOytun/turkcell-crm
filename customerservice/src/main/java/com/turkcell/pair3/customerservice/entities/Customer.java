@@ -1,6 +1,7 @@
 package com.turkcell.pair3.customerservice.entities;
 
-import com.turkcell.pair3.customerservice.core.entities.BaseEntity;
+import com.turkcell.pair3.core.entities.BaseEntity;
+import com.turkcell.pair3.core.enums.EnumState;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,22 +27,19 @@ public class Customer extends BaseEntity {
     @Column(name="customer_id")
     private String customerId;
 
-    @Column(name = "account_number", nullable = false)
-    private String accountNumber;
-
-    @Column(name = "email", nullable = false)
-    private String email;
-
     @Column(name = "gsm_number", nullable = false)
     private String gsmNumber;
-
-    @Column(name = "role", nullable = false)
-    private String role;
 
     @Column(name = "fax")
     private String fax;
 
-    @Column(name = "address")
+    @Column(name = "state")
+    @Enumerated(EnumType.STRING)
+    private EnumState state;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer")
     private List<Address> address;
+
+    @Column(name = "user_id")
+    private Integer userId;
 }

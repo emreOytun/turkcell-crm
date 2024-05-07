@@ -9,4 +9,6 @@ public interface AddressService {
     void delete(Integer id);
 
     AddressUpdateResponse update(int id, AddressUpdateRequest request);
+
+    void makePrimary(Integer id);
 }

@@ -15,7 +15,6 @@ import java.time.LocalDate;
 public class IndividualCustomerAddResponse {
     private Integer id;
     private String customerId;
-    private String accountNumber;
     private String email;
     private String nationalityId;
     private String gsmNumber;
