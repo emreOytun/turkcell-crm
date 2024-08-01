@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.turkcell.pair3</groupId>
             <artifactId>core</artifactId>
-            <version>2.3.0</version>
+            <version>2.3.4</version>
         </dependency>
         <dependency>
             <groupId>com.turkcell.pair3</groupId>
@@ -104,7 +104,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/ErselEren/turkcell-crm-core</url>
+            <url>https://maven.pkg.github.com/emreOytun/turkcell-crm-core</url>
         </repository>
     </repositories>
 

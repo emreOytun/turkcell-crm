@@ -104,16 +104,9 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
         IndividualCustomer updatedCustomer = customer.get();
 
-<<<<<<< Updated upstream
         if(individualCustomerRepository.existsByNationalityId(request.getNationalityId()) && !updatedCustomer.getNationalityId().equals(request.getNationalityId())){
             throw new BusinessException(CustomerMessages.NATIONALITY_ID_ALREADY_EXISTS);
         }
-=======
-        if (individualCustomerRepository.existsByNationalityId(request.getNationalityId()))
-            if (!updatedCustomer.getNationalityId().equals(request.getNationalityId())) {
-                throw new BusinessException(CustomerMessages.NATIONALITY_ID_ALREADY_EXISTS);
-            }
->>>>>>> Stashed changes
 
         IndividualCustomerMapper.INSTANCE.updateIndividualCustomerField(updatedCustomer, request);
 
