@@ -1,8 +1,20 @@
 services:
+  config-server:
+    build: ./configserver
+    ports:
+      - "8079:8079"
+    networks:
+      - common
+
   discovery-server:
     build: ./discoveryserver
     ports:
       - "8888:8888"
+    environment:
+      - SPRING_CLOUD_CONFIG_PROFILE=dev
+      - CONFIGURL=http://config-server:8079
+    depends_on:
+      - config-server
     networks:
       - common
 
@@ -18,19 +30,12 @@ services:
     networks:
       - common
 
-  config-server:
-    build: ./configserver
-    ports:
-      - "8079:8079"
-    networks:
-      - common
-
   auth-service:
     build: ./authservice
     ports:
       - "8086:8086"
     environment:
-      - SPRING_CLOUD_CONFIG_PROFILE=prod
+      - SPRING_CLOUD_CONFIG_PROFILE=dev
       - CONFIGURL=http://config-server:8079
     depends_on:
       - postgres
@@ -74,7 +79,7 @@ services:
   mongodb:
     image: mongo
     ports:
-      - "27018:27017"
+      - "27017:27017"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
@@ -86,7 +91,7 @@ services:
   postgres:
     image: postgres
     ports:
-      - "5433:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=test
     volumes:
