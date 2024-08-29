@@ -1,10 +1,8 @@
 package com.turkcell.pair3.productservice.services.concretes;
 
-import com.turkcell.pair3.events.CartProductEvent;
-import com.turkcell.pair3.events.ProductEvent;
+import com.turkcell.pair3.core.events.CartProductEvent;
 import com.turkcell.pair3.productservice.entities.Cart;
 import com.turkcell.pair3.productservice.entities.CartProducts;
-import com.turkcell.pair3.productservice.entities.Product;
 import com.turkcell.pair3.productservice.repositories.CartProductRepository;
 import com.turkcell.pair3.productservice.repositories.CartRepository;
 import com.turkcell.pair3.productservice.services.abstracts.CartService;

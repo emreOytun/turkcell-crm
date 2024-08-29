@@ -1,9 +1,8 @@
 package com.turkcell.pair3.customerservice.clients;
 
 import com.turkcell.pair3.core.configuration.feign.FeignClientConfiguration;
-import com.turkcell.pair3.events.RegisterEvent;
+import com.turkcell.pair3.core.events.RegisterEvent;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name="authservice",path = "/api/v1/auth", configuration = FeignClientConfiguration.class)

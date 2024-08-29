@@ -1,5 +1,5 @@
 FROM maven:3.8.3-openjdk-17 as build
-
+EXPOSE 8083
 WORKDIR /app
 
 ARG GITHUB_USERNAME
@@ -10,21 +10,7 @@ RUN mkdir -p /root/.m2 && \
 
 COPY . /app/
 
-############## For common package, but it is moved into core package ############
-############## Since common package does not create a maven repository on github, docker cannot download the jar ########
-############## We need to copy the jar to dockar image manually ##########
-
-# Copy the 'common' JAR from local machine to the Docker image
-# Jar is in the same package as customerservice because dockerfile cannot access other packages
-COPY ./docker-libs/common-1.0-SNAPSHOT.jar /app/common-1.0-SNAPSHOT.jar
-
-# Install the 'common' JAR into the local Maven repository inside the Docker image
-RUN mvn install:install-file -Dfile=/app/common-1.0-SNAPSHOT.jar -DgroupId=com.turkcell.pair3 -DartifactId=common -Dversion=1.0-SNAPSHOT -Dpackaging=jar
-
 RUN mvn clean package -s /root/.m2/settings.xml -DskipTests
-
 FROM openjdk:17-jdk
-
 COPY --from=build /app/target/customerservice-0.0.1-SNAPSHOT.jar /app/customerservice.jar
-
 CMD ["java", "-jar", "/app/customerservice.jar"]

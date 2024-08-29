@@ -1,4 +1,5 @@
 FROM maven:3.8.3-openjdk-17 as build
+EXPOSE 8079
 WORKDIR /app
 COPY . /app/
 RUN mvn clean package -DskipTests

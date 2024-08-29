@@ -2,7 +2,7 @@ package com.turkcell.pair3.invoiceservice.services.concretes;
 
 import com.turkcell.pair3.invoiceservice.services.dtos.responses.BillAccountResponse;
 import com.turkcell.pair3.invoiceservice.services.mapper.BillAccountMapper;
-import com.turkcell.pair3.messages.Messages;
+import com.turkcell.pair3.core.messages.Messages;
 import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.core.services.abstracts.MessageService;
 import com.turkcell.pair3.invoiceservice.clients.ProductServiceClient;

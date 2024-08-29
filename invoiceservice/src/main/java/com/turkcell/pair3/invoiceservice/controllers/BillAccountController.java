@@ -5,7 +5,7 @@ import com.turkcell.pair3.core.services.abstracts.MessageService;
 import com.turkcell.pair3.invoiceservice.clients.CustomerServiceClient;
 import com.turkcell.pair3.invoiceservice.services.abstracts.BillAccountService;
 import com.turkcell.pair3.invoiceservice.services.dtos.responses.BillAccountResponse;
-import com.turkcell.pair3.messages.Messages;
+import com.turkcell.pair3.core.messages.Messages;
 import com.turkcell.pair3.invoiceservice.services.dtos.request.AddBillAccountRequest;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

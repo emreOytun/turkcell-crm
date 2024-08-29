@@ -2,8 +2,7 @@ package com.turkcell.pair3.productservice.services.concretes;
 
 import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.core.services.abstracts.MessageService;
-import com.turkcell.pair3.messages.Messages;
-import com.turkcell.pair3.productservice.entities.Campaign;
+import com.turkcell.pair3.core.messages.Messages;
 import com.turkcell.pair3.productservice.entities.Product;
 import com.turkcell.pair3.productservice.repositories.CategoryRepository;
 import com.turkcell.pair3.productservice.repositories.ProductRepository;

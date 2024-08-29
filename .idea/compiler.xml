@@ -11,7 +11,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gatewayserver" />
-        <module name="common" />
         <module name="authservice" />
         <module name="discoveryserver" />
         <module name="configserver" />
@@ -33,6 +32,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common" target="17" />
       <module name="core" target="17" />
     </bytecodeTargetLevel>
   </component>

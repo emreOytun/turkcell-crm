@@ -3,39 +3,49 @@ services:
     build: ./configserver
     ports:
       - "8079:8079"
+    environment:
+      - spring.cloud.config.server.git.default-label=master
     networks:
       - common
+    restart: on-failure
 
   discovery-server:
     build: ./discoveryserver
     ports:
       - "8888:8888"
     environment:
-      - SPRING_CLOUD_CONFIG_PROFILE=dev
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
       - CONFIGURL=http://config-server:8079
     depends_on:
       - config-server
     networks:
       - common
+    restart: on-failure
 
   gateway-server:
     build: ./gatewayserver
     ports:
       - "8001:8001"
     environment:
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8888/eureka/
-      - EUREKA_URL=http://discovery-server:8888
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
+      - CONFIGURL=http://config-server:8079
     depends_on:
+      - config-server
       - discovery-server
     networks:
       - common
+    restart: on-failure
 
   auth-service:
-    build: ./authservice
+    build:
+      context: ./authservice
+      args:
+        GITHUB_USERNAME: ${GITHUB_USERNAME}
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
     ports:
       - "8086:8086"
     environment:
-      - SPRING_CLOUD_CONFIG_PROFILE=dev
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
       - CONFIGURL=http://config-server:8079
     depends_on:
       - postgres
@@ -43,6 +53,7 @@ services:
       - config-server
     networks:
       - common
+    restart: on-failure
 
   customer-service:
     build:
@@ -53,7 +64,7 @@ services:
     ports:
       - "8083:8083"
     environment:
-      - SPRING_CLOUD_CONFIG_PROFILE=prod
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
       - CONFIGURL=http://config-server:8079
     depends_on:
       - postgres
@@ -64,17 +75,61 @@ services:
     restart: on-failure
 
   order-service:
-    build: ./orderservice
+    build:
+      context: ./orderservice
+      args:
+        GITHUB_USERNAME: ${GITHUB_USERNAME}
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
     ports:
       - "8081:8081"
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://admin:admin@mongodb:27017/orderservice?authSource=admin
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8888/eureka/
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
+      - CONFIGURL=http://config-server:8079
     depends_on:
       - mongodb
       - discovery-server
+      - config-server
     networks:
       - common
+    restart: on-failure
+
+  product-service:
+    build:
+      context: ./productservice
+      args:
+        GITHUB_USERNAME: ${GITHUB_USERNAME}
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    ports:
+      - "8084:8084"
+    environment:
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
+      - CONFIGURL=http://config-server:8079
+    depends_on:
+      - postgres
+      - discovery-server
+      - config-server
+    networks:
+      - common
+    restart: on-failure
+
+  invoice-service:
+    build:
+      context: ./invoiceservice
+      args:
+        GITHUB_USERNAME: ${GITHUB_USERNAME}
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_CLOUD_CONFIG_PROFILE=devdocker
+      - CONFIGURL=http://config-server:8079
+    depends_on:
+      - postgres
+      - discovery-server
+      - config-server
+    networks:
+      - common
+    restart: on-failure
 
   mongodb:
     image: mongo
@@ -95,6 +150,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=test
     volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgresql-volume:/var/lib/postgresql/data
     networks:
       - common

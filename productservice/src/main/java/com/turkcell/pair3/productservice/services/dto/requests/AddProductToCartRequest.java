@@ -1,6 +1,6 @@
 package com.turkcell.pair3.productservice.services.dto.requests;
 
-import com.turkcell.pair3.messages.Messages;
+import com.turkcell.pair3.core.messages.Messages;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

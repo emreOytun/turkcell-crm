@@ -1,6 +1,6 @@
 package com.turkcell.pair3.productservice.controllers;
 
-import com.turkcell.pair3.events.CartProductEvent;
+import com.turkcell.pair3.core.events.CartProductEvent;
 import com.turkcell.pair3.productservice.services.dto.requests.AddProductRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;

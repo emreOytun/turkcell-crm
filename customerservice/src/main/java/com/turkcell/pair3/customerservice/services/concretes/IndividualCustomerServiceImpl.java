@@ -18,13 +18,12 @@ import com.turkcell.pair3.customerservice.services.dtos.responses.*;
 import com.turkcell.pair3.customerservice.services.mapper.IndividualCustomerMapper;
 import com.turkcell.pair3.customerservice.services.messages.CustomerMessages;
 import com.turkcell.pair3.customerservice.services.rules.IndividualCustomerBusinessRules;
-import com.turkcell.pair3.events.RegisterEvent;
+import com.turkcell.pair3.core.events.RegisterEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;

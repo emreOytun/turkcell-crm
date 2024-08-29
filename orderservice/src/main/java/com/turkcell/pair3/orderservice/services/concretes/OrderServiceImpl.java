@@ -2,9 +2,8 @@ package com.turkcell.pair3.orderservice.services.concretes;
 
 import com.turkcell.pair3.core.exception.types.BusinessException;
 import com.turkcell.pair3.core.services.abstracts.MessageService;
-import com.turkcell.pair3.events.CartProductEvent;
-import com.turkcell.pair3.events.ProductEvent;
-import com.turkcell.pair3.messages.Messages;
+import com.turkcell.pair3.core.events.CartProductEvent;
+import com.turkcell.pair3.core.messages.Messages;
 import com.turkcell.pair3.orderservice.clients.ProductServiceClient;
 import com.turkcell.pair3.orderservice.entities.Order;
 import com.turkcell.pair3.orderservice.entities.OrderDetails;
@@ -12,8 +11,6 @@ import com.turkcell.pair3.orderservice.repositories.OrderDetailsRepository;
 import com.turkcell.pair3.orderservice.repositories.OrderRepository;
 import com.turkcell.pair3.orderservice.services.abstracts.OrderService;
 import com.turkcell.pair3.orderservice.services.dtos.requests.CreateOrderRequest;
-import com.turkcell.pair3.orderservice.services.dtos.responses.CreateOrderResponse;
-import com.turkcell.pair3.orderservice.services.mappers.OrderMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

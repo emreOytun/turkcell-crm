@@ -1,7 +1,6 @@
 package com.turkcell.pair3.orderservice.services.dtos.requests;
 
-import com.turkcell.pair3.events.CartProductEvent;
-import com.turkcell.pair3.messages.Messages;
+import com.turkcell.pair3.core.messages.Messages;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
