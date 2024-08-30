@@ -1,0 +1,3 @@
+[submodule "customerservice"]
+	path = customerservice
+	url = https://github.com/emreOytun/turkcell-crm-customerservice.git
