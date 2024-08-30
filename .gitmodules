@@ -1,3 +1,24 @@
 [submodule "customerservice"]
 	path = customerservice
 	url = https://github.com/emreOytun/turkcell-crm-customerservice.git
+[submodule "authservice"]
+	path = authservice
+	url = https://github.com/emreOytun/turkcell-crm-authservice.git
+[submodule "orderservice"]
+	path = orderservice
+	url = https://github.com/emreOytun/turkcell-crm-orderservice.git
+[submodule "configserver"]
+	path = configserver
+	url = https://github.com/emreOytun/turkcell-crm-config-server.git
+[submodule "gatewayserver"]
+	path = gatewayserver
+	url = https://github.com/emreOytun/turkcell-crm-gatewayserver.git
+[submodule "invoiceserver"]
+	path = invoiceserver
+	url = https://github.com/emreOytun/turkcell-crm-invoiceservice.git
+[submodule "productservice"]
+	path = productservice
+	url = https://github.com/emreOytun/turkcell-crm-productservice.git
+[submodule "discoveryserver"]
+	path = discoveryserver
+	url = https://github.com/emreOytun/turkcell-crm-discoveryserver.git
