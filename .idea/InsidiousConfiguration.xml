@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.insidious.plugin.factory.InsidiousConfigurationState">
+    <option name="libraryFilterModel" value="{&quot;includedClassNames&quot;:[],&quot;excludedClassNames&quot;:[],&quot;includedMethodNames&quot;:[],&quot;excludedMethodNames&quot;:[],&quot;followEditor&quot;:false,&quot;candidateFilterType&quot;:null,&quot;itemFilterType&quot;:&quot;SavedReplay&quot;}" />
+    <option name="executionSession" value="{&quot;lastUpdateAt&quot;:1726324199903,&quot;projectId&quot;:&quot;turkcell-crm&quot;,&quot;createdAt&quot;:1726324199903,&quot;sessionId&quot;:&quot;selogger-output-20240914-172958857&quot;,&quot;hostname&quot;:&quot;localhost&quot;,&quot;path&quot;:&quot;C:\\Users\\Emre\\.unlogged\\sessions\\selogger-output-20240914-172958857&quot;,&quot;logFilePath&quot;:&quot;C:\\Users\\Emre\\.unlogged\\sessions\\selogger-output-20240914-172958857\\log.txt&quot;,&quot;databaseConnectionString&quot;:&quot;jdbc:sqlite:C:\\Users\\Emre\\.unlogged\\sessions\\selogger-output-20240914-172958857\\execution.db&quot;,&quot;sessionMode&quot;:&quot;LOCAL&quot;,&quot;timestampInUTC&quot;:1726324198860,&quot;databasePath&quot;:&quot;C:\\Users\\Emre\\.unlogged\\sessions\\selogger-output-20240914-172958857\\execution.db&quot;}" />
+  </component>
+</project>
