@@ -22,19 +22,29 @@
       <option name="url" value="http://34.121.184.146:8081/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="maven-releases" />
+      <option name="name" value="maven-releases" />
+      <option name="url" value="http://34.121.184.146:8081/nexus/content/repositories/releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven-snapshots" />
+      <option name="name" value="maven-snapshots" />
+      <option name="url" value="http://34.121.184.146:8081/nexus/content/repositories/snapshots/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven-releases" />
       <option name="name" value="maven-releases" />
       <option name="url" value="http://34.121.184.146:8081/nexus/content/groups/public" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="central" />
-      <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -65,6 +75,11 @@
       <option name="id" value="github" />
       <option name="name" value="GitHub Packages" />
       <option name="url" value="https://maven.pkg.github.com/betlcelik/turkcell-crm-common" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven-central" />
+      <option name="name" value="maven-central" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
   </component>
 </project>
