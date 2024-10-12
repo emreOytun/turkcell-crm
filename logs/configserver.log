@@ -1,0 +1,292 @@
+2024-09-29 15:55:28 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 15:55:28 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 876 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 15:55:28 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 15:55:29 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 15:55:29 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 15:55:29 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 15:55:29 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 15:55:29 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 15:55:29 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 15:55:29 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 876 ms
+2024-09-29 15:55:30 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 15:55:30 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 15:55:30 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.532 seconds (process running for 4.692)
+2024-09-29 15:56:06 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 15:56:06 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 15:56:06 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 15:56:09 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-6172716310554932462\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-6172716310554932462/'
+2024-09-29 15:58:44 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-6172716310554932462\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-6172716310554932462/'
+2024-09-29 16:02:48 INFO  MultipleJGitEnvironmentRepository:553 - Fetched for remote master and found 1 updates
+2024-09-29 16:02:48 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-6172716310554932462\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-6172716310554932462/'
+2024-09-29 16:03:33 WARN  DefaultHandlerExceptionResolver:247 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-09-29 16:07:23 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-6172716310554932462\.git\objects\pack\pack-5d09442bf888ae979ce0a108983842f66a8e9ea9.idx
+2024-09-29 16:07:29 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 16:07:29 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 10488 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 16:07:29 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 16:07:30 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 16:07:30 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 16:07:30 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 1019 ms
+2024-09-29 16:07:31 WARN  AnnotationConfigServletWebServerApplicationContext:632 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultEnvironmentRepository' defined in class path resource [org/springframework/cloud/config/server/config/DefaultRepositoryConfiguration.class]: Failed to instantiate [org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository]: Factory method 'defaultEnvironmentRepository' threw exception with message: Shutdown in progress
+2024-09-29 16:07:36 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 16:07:36 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 14244 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 16:07:36 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 16:07:36 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 16:07:37 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 16:07:37 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 16:07:37 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 16:07:37 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 16:07:37 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 16:07:37 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 784 ms
+2024-09-29 16:07:38 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 16:07:38 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 16:07:38 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 2.902 seconds (process running for 3.652)
+2024-09-29 16:07:43 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 16:07:43 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 16:07:43 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 16:07:45 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-2264293450723793882\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-2264293450723793882/'
+2024-09-29 16:09:12 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-2264293450723793882\.git\objects\pack\pack-88c80dd4053cb0c22b6c188fb8400ffbc4b55b8c.idx
+2024-09-29 16:09:21 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 16:09:21 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 7084 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 16:09:21 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 16:09:21 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 16:09:22 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 16:09:22 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 16:09:22 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 16:09:22 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 16:09:22 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 16:09:22 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 782 ms
+2024-09-29 16:09:23 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 16:09:23 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 16:09:23 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 2.923 seconds (process running for 3.674)
+2024-09-29 16:09:28 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 16:09:28 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 16:09:28 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 16:09:30 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-13014253337891576138\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-13014253337891576138/'
+2024-09-29 17:19:44 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-13014253337891576138\.git\objects\pack\pack-4a6c221c61a125e7e9ba1e6337a2624f0cd95b39.idx
+2024-09-29 17:19:54 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 17:19:54 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 14988 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 17:19:54 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 17:19:55 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 17:19:55 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 17:19:55 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:19:55 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 17:19:55 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 17:19:55 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 17:19:55 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 783 ms
+2024-09-29 17:19:56 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:19:56 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 17:19:57 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.013 seconds (process running for 3.861)
+2024-09-29 17:20:06 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 17:20:06 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 17:20:06 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 17:20:08 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-2779516230129711660\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-2779516230129711660/'
+2024-09-29 17:22:18 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-2779516230129711660\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-2779516230129711660/'
+2024-09-29 17:23:46 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-2779516230129711660\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-2779516230129711660/'
+2024-09-29 17:24:21 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-2779516230129711660\.git\objects\pack\pack-4a6c221c61a125e7e9ba1e6337a2624f0cd95b39.idx
+2024-09-29 17:24:32 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 17:24:32 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 17976 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 17:24:32 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 17:24:33 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 17:24:33 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 17:24:33 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:24:33 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 17:24:33 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 17:24:33 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 17:24:33 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 795 ms
+2024-09-29 17:24:34 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:24:34 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 17:24:34 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 2.926 seconds (process running for 3.698)
+2024-09-29 17:24:42 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 17:24:42 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 17:24:42 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 17:24:44 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-948875440224476917\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-948875440224476917/'
+2024-09-29 17:25:42 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-948875440224476917\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-948875440224476917/'
+2024-09-29 17:32:32 INFO  MultipleJGitEnvironmentRepository:553 - Fetched for remote master and found 1 updates
+2024-09-29 17:32:32 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-948875440224476917\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-948875440224476917/'
+2024-09-29 17:32:32 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-948875440224476917\.git\objects\pack\pack-7eca3265c514fd3fddb4f730f546fb4e95526b26.idx
+2024-09-29 17:32:43 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 17:32:43 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 2008 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 17:32:43 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 17:32:44 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 17:32:44 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 17:32:44 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:32:44 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 17:32:44 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 17:32:44 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 17:32:44 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 793 ms
+2024-09-29 17:32:45 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:32:45 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 17:32:45 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 2.969 seconds (process running for 3.734)
+2024-09-29 17:32:49 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 17:32:49 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 17:32:49 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 17:32:51 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-13296310233092679436\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-13296310233092679436/'
+2024-09-29 17:35:03 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-13296310233092679436\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-13296310233092679436/'
+2024-09-29 17:37:09 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-13296310233092679436\.git\objects\pack\pack-5258e87ecd06201f01f79bd3665290318275e9c8.idx
+2024-09-29 17:41:44 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 17:41:44 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 10544 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 17:41:44 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 17:41:44 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 17:41:44 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 17:41:44 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:41:44 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 17:41:44 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 17:41:44 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 17:41:44 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 777 ms
+2024-09-29 17:41:45 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:41:45 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 17:41:46 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 2.899 seconds (process running for 3.64)
+2024-09-29 17:41:52 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 17:41:52 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 17:41:52 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2024-09-29 17:41:55 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-7545107865928334343\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-7545107865928334343/'
+2024-09-29 17:42:09 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-7545107865928334343\.git\objects\pack\pack-5258e87ecd06201f01f79bd3665290318275e9c8.idx
+2024-09-29 17:52:24 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 17:52:24 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 6564 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 17:52:24 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 17:52:25 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 17:52:25 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 17:52:25 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:52:25 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 17:52:25 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 17:52:25 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 17:52:25 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 860 ms
+2024-09-29 17:52:26 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 17:52:26 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 17:52:27 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.454 seconds (process running for 4.534)
+2024-09-29 17:52:33 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 17:52:33 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 17:52:33 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2024-09-29 17:52:37 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-435391849994923016\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-435391849994923016/'
+2024-09-29 17:53:34 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-435391849994923016\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-435391849994923016/'
+2024-09-29 18:08:36 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-435391849994923016\.git\objects\pack\pack-937c1c3eca8f93ae6091cad84d208eccd6204c5d.idx
+2024-09-29 18:16:07 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:16:07 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 20752 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:16:07 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:16:07 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:16:08 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:16:08 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:16:08 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:16:08 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:16:08 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:16:08 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 785 ms
+2024-09-29 18:16:09 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:16:09 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:16:09 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.18 seconds (process running for 4.089)
+2024-09-29 18:16:18 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 18:16:18 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 18:16:18 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2024-09-29 18:16:22 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-14788032322014691547\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-14788032322014691547/'
+2024-09-29 18:16:35 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-14788032322014691547\.git\objects\pack\pack-234a1277416d92f21b105f14f50f44f4c96954dc.idx
+2024-09-29 18:19:19 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:19:19 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 15760 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:19:19 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:19:20 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:19:20 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:19:20 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:19:20 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:19:20 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:19:20 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:19:20 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 806 ms
+2024-09-29 18:19:21 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:19:21 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:19:22 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.386 seconds (process running for 4.369)
+2024-09-29 18:19:27 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 18:19:27 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 18:19:27 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2024-09-29 18:19:29 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-8695405569097282509\customerservice-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-8695405569097282509/'
+2024-09-29 18:19:30 WARN  DefaultHandlerExceptionResolver:247 - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to flush: java.io.IOException: Connection reset by peer]
+2024-09-29 18:19:33 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-8695405569097282509\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-8695405569097282509/'
+2024-09-29 18:20:29 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-8695405569097282509\.git\objects\pack\pack-b39d8a18e499ec44067c28a1fc8ab32f1ba48207.idx
+2024-09-29 18:20:34 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:20:34 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 19572 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:20:34 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:20:34 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:20:35 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:20:35 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:20:35 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:20:35 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:20:35 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:20:35 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 789 ms
+2024-09-29 18:20:36 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:20:36 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:20:37 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.456 seconds (process running for 4.299)
+2024-09-29 18:20:41 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 18:20:41 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 18:20:41 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2024-09-29 18:20:45 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-16104767905405621081\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-16104767905405621081/'
+2024-09-29 18:21:22 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-16104767905405621081\.git\objects\pack\pack-4af156d69f72913f7773a0df14f79e9b27ea4695.idx
+2024-09-29 18:49:11 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:49:11 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 9648 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:49:11 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:49:12 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:49:12 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:49:12 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:49:12 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:49:12 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:49:12 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:49:12 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 782 ms
+2024-09-29 18:49:13 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:49:13 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:49:14 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.45 seconds (process running for 4.496)
+2024-09-29 18:49:20 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 18:49:20 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 18:49:20 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 18:49:22 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-1703723674068405752\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-1703723674068405752/'
+2024-09-29 18:51:07 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-1703723674068405752\.git\objects\pack\pack-89729cce2512cd2036cec99cf044e315d7a65bc1.idx
+2024-09-29 18:51:11 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:51:11 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 18416 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:51:11 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:51:12 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:51:12 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:51:12 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:51:12 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:51:12 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:51:12 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:51:12 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 787 ms
+2024-09-29 18:51:13 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:51:13 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:51:13 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.149 seconds (process running for 3.888)
+2024-09-29 18:51:18 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 18:51:18 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 18:51:18 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2024-09-29 18:51:20 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-13584145300562598891\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-13584145300562598891/'
+2024-09-29 18:52:07 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-13584145300562598891\.git\objects\pack\pack-d02693b7d8c60779c5e97920633198e2adaec555.idx
+2024-09-29 18:52:11 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:52:11 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 712 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:52:11 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:52:12 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:52:12 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:52:12 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:52:12 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:52:12 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:52:12 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:52:12 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 805 ms
+2024-09-29 18:52:13 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:52:13 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:52:13 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.246 seconds (process running for 3.987)
+2024-09-29 18:53:24 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-29 18:53:24 INFO  ConfigserverApplication:50 - Starting ConfigserverApplication using Java 17.0.12 with PID 16036 (C:\turkcell-crm\configserver\target\classes started by Emre in C:\turkcell-crm)
+2024-09-29 18:53:24 INFO  ConfigserverApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-09-29 18:53:24 INFO  GenericScope:282 - BeanFactory id=f7967b62-068c-32b4-9d6a-b8da96911a03
+2024-09-29 18:53:24 INFO  TomcatWebServer:109 - Tomcat initialized with port 8079 (http)
+2024-09-29 18:53:24 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:53:24 INFO  StandardService:173 - Starting service [Tomcat]
+2024-09-29 18:53:24 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-09-29 18:53:25 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-09-29 18:53:25 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 836 ms
+2024-09-29 18:53:26 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8079"]
+2024-09-29 18:53:26 INFO  TomcatWebServer:241 - Tomcat started on port 8079 (http) with context path ''
+2024-09-29 18:53:26 INFO  ConfigserverApplication:56 - Started ConfigserverApplication in 3.195 seconds (process running for 3.936)
+2024-09-29 18:53:30 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-29 18:53:30 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-09-29 18:53:30 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-09-29 18:53:32 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 18:56:20 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 18:56:31 INFO  MultipleJGitEnvironmentRepository:553 - Fetched for remote master and found 1 updates
+2024-09-29 18:56:31 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 18:56:39 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\gatewayserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 18:57:43 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\customerservice-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 18:58:25 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\discoveryserver-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 18:59:21 INFO  NativeEnvironmentRepository:293 - Adding property source: Config resource 'file [C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\customerservice-dev.properties]' via location 'file:/C:/Users/Emre/AppData/Local/Temp/config-repo-3023577028861060202/'
+2024-09-29 19:33:39 WARN  MultipleJGitEnvironmentRepository:121 - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Emre\AppData\Local\Temp\config-repo-3023577028861060202\.git\objects\pack\pack-5fae46e7459d12630aa453b8279fe46ec7dacb1b.idx
