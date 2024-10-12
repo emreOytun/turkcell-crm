@@ -4,6 +4,8 @@
 # Tech Stack
 - Java 17
 - Spring 3.X.X
+- PostgreSQL
+- MongoDB
 - Microservices
 - Spring Cloud Eureka
 - Spring Cloud API Gateway
