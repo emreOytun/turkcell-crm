@@ -1,5 +1,8 @@
 # Turkcell CRM Project
 - A CRM project developed in the Turkcell Spring Bootcamp by the Pair3 group.
+- I developed the project after the bootcamp also and added some new features.
+- Project advisors were Engin Demiroğ and Halit Enes Kalaycı.
+- [Requirements Document](https://github.com/emreOytun/turkcell-crm/blob/master/Kodlama.io_Akademi_SRS_v1.5_.docx)
 
 # Tech Stack
 - Java 17
